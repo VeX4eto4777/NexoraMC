@@ -1,157 +1,129 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bg">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>NexoraMC</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --p1:#7b2cff;
-  --p2:#c084fc;
-  --bg:#05000d;
+  --purple1:#6a00ff;
+  --purple2:#b56cff;
+  --bg:#0b0614;
+  --card:#160b2b;
 }
-
-*{margin:0;padding:0;box-sizing:border-box}
-
+*{box-sizing:border-box;margin:0;padding:0}
 body{
   font-family:'Orbitron',sans-serif;
-  background:radial-gradient(circle at top,#16002b,#05000d);
-  color:white;
+  background:radial-gradient(circle at top,var(--purple1),var(--bg) 70%);
+  color:#fff;
   overflow-x:hidden;
 }
 
-#particles{
+/* particles */
+canvas{
   position:fixed;
   inset:0;
   z-index:-1;
 }
 
-/* LANGUAGE */
-.lang{
-  position:fixed;
-  top:20px;
-  right:20px;
-  z-index:20;
-}
-.lang button{
-  background:none;
-  border:1px solid var(--p2);
-  color:white;
-  padding:6px 12px;
-  margin-left:6px;
-  cursor:pointer;
-}
-
-/* HEADER */
+/* header */
 header{
   min-height:100vh;
   display:flex;
-  flex-direction:column;
-  justify-content:center;
   align-items:center;
+  justify-content:center;
   text-align:center;
-  padding:20px;
 }
-
-.logo{
-  width:360px;
-  filter:drop-shadow(0 0 55px var(--p1));
+header img{
+  width:260px;
+  margin-bottom:20px;
+  transition:transform .3s,filter .3s;
 }
-
-h1{
-  font-size:3.2rem;
-  margin-top:25px;
-  background:linear-gradient(90deg,var(--p1),var(--p2));
-  -webkit-background-clip:text;
-  color:transparent;
+header img:hover{
+  transform:scale(1.08);
+  filter:drop-shadow(0 0 25px var(--purple2));
 }
-
-p{
+header h1{
+  font-size:3rem;
+}
+header p{
   max-width:800px;
   margin:20px auto;
-  line-height:1.7;
   opacity:.9;
 }
 
-/* BUTTONS */
-.buttons{
-  display:flex;
-  gap:20px;
-  flex-wrap:wrap;
-  justify-content:center;
-  margin-top:30px;
-}
-
-.btn{
-  padding:14px 36px;
-  border-radius:40px;
-  background:linear-gradient(135deg,var(--p1),var(--p2));
-  color:white;
+/* buttons */
+.btns a{
+  display:inline-block;
+  margin:10px;
+  padding:14px 26px;
+  border-radius:30px;
+  background:linear-gradient(135deg,var(--purple1),var(--purple2));
+  color:#fff;
   text-decoration:none;
-  font-weight:bold;
-  box-shadow:0 0 30px rgba(192,132,252,.6);
+  box-shadow:0 0 20px rgba(181,108,255,.4);
   transition:.3s;
 }
-.btn:hover{
-  transform:translateY(-4px);
-  box-shadow:0 0 55px rgba(192,132,252,1);
+.btns a:hover{
+  transform:translateY(-3px);
+  box-shadow:0 0 35px rgba(181,108,255,.8);
 }
 
-/* SECTIONS */
+/* section */
 section{
-  padding:90px 20px;
-  text-align:center;
+  padding:100px 10%;
+}
+.card{
+  background:var(--card);
+  border-radius:20px;
+  padding:40px;
+  margin-bottom:40px;
+  box-shadow:0 0 40px rgba(106,0,255,.25);
 }
 
-.title{
-  font-size:2.4rem;
-  color:var(--p2);
-  margin-bottom:30px;
-}
-
+/* features */
 .features{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:30px;
-  max-width:1150px;
-  margin:auto;
+}
+.feature{
+  padding:25px;
+  border-radius:16px;
+  background:#1c0f3a;
 }
 
-.card{
-  background:rgba(255,255,255,.05);
-  border-radius:20px;
-  padding:30px;
-  box-shadow:0 0 35px rgba(192,132,252,.25);
-}
-
-/* DISCORD */
-.discord{
+/* discord card */
+.discord-card{
   display:flex;
-  justify-content:center;
-  margin-top:35px;
+  align-items:center;
+  gap:20px;
+  background:#1b0f33;
 }
+.discord-icon{
+  font-size:50px;
+}
+.lang{
+  position:fixed;
+  top:20px;
+  right:20px;
+}
+.lang button{
+  background:none;
+  border:1px solid var(--purple2);
+  color:#fff;
+  padding:6px 12px;
+  cursor:pointer;
+  margin-left:6px;
+}
+.hidden{display:none}
 
-/* FOOTER */
-footer{
-  padding:45px 20px;
-  background:#04000a;
-  text-align:center;
-  opacity:.85;
-}
-
-/* SCROLL */
-.reveal{
-  opacity:0;
-  transform:translateY(50px);
-  transition:1s;
-}
-.reveal.active{
-  opacity:1;
-  transform:none;
-}
+/* reveal */
+.reveal{opacity:0;transform:translateY(40px);transition:.8s}
+.reveal.active{opacity:1;transform:none}
 </style>
 </head>
 
@@ -160,127 +132,103 @@ footer{
 <canvas id="particles"></canvas>
 
 <div class="lang">
-  <button onclick="setLang('en')">EN</button>
   <button onclick="setLang('bg')">BG</button>
+  <button onclick="setLang('en')">EN</button>
 </div>
 
-<header class="reveal">
-  <img src="logo.png" class="logo" alt="NexoraMC">
-  <h1>NexoraMC</h1>
-  <p id="desc"></p>
+<header>
+  <div>
+    <img src="logo.png" alt="NexoraMC Logo">
+    <h1>NexoraMC</h1>
 
-  <div class="buttons">
-    <a class="btn" id="btnDiscord" target="_blank"></a>
-    <a class="btn" id="btnDonate" target="_blank"></a>
+    <p data-bg="Fantasy Minecraft Java сървър с custom мобове, планети, ъпгрейди, pets и enchants."
+       data-en="Fantasy Minecraft Java server with custom mobs, planets, upgrades, pets and enchants.">
+    </p>
+
+    <div class="btns">
+      <a href="https://discord.gg/drtUuE3s9C" target="_blank">Discord</a>
+      <a href="https://www.paypal.com/donate?business=sorelygone@gmail.com&currency_code=EUR" target="_blank">
+        Donate (PayPal)
+      </a>
+    </div>
   </div>
 </header>
 
 <section class="reveal">
-  <h2 class="title" id="core"></h2>
-  <div class="features">
-    <div class="card" id="f1"></div>
-    <div class="card" id="f2"></div>
-    <div class="card" id="f3"></div>
-    <div class="card" id="f4"></div>
+  <div class="card">
+    <h2 data-bg="Основни функции" data-en="Core Features"></h2>
+    <div class="features">
+      <div class="feature">
+        <h3>🪐 Planets</h3>
+        <p data-bg="Различни светове с уникален прогрес."
+           data-en="Multiple worlds with unique progression."></p>
+      </div>
+      <div class="feature">
+        <h3>⚔ Custom Mobs</h3>
+        <p data-bg="Мобове с редки drop-ове и механики."
+           data-en="Custom mobs with rare drops and mechanics."></p>
+      </div>
+      <div class="feature">
+        <h3>🔧 Upgrades</h3>
+        <p data-bg="Подобрявай оръжия, tools и pets."
+           data-en="Upgrade weapons, tools and pets."></p>
+      </div>
+    </div>
   </div>
 </section>
 
 <section class="reveal">
-  <h2 class="title" id="storeTitle"></h2>
-  <p id="storeDesc"></p>
-</section>
-
-<section class="reveal">
-  <h2 class="title" id="discordTitle"></h2>
-  <p id="discordDesc"></p>
-  <div class="discord">
-    <iframe
-      src="https://discord.com/widget?id=1329820723048611871&theme=dark"
-      width="350"
-      height="500"
-      allowtransparency="true"
-      sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
-    </iframe>
+  <div class="card discord-card">
+    <div class="discord-icon">💬</div>
+    <div>
+      <h2>Discord</h2>
+      <p data-bg="Присъедини се към общността ни."
+         data-en="Join our community."></p>
+      <a class="btns" href="https://discord.gg/drtUuE3s9C" target="_blank">
+        <span>Join Discord</span>
+      </a>
+    </div>
   </div>
 </section>
-
-<footer id="footerText"></footer>
 
 <script>
-const content={
-  en:{
-    desc:"A fantasy Minecraft Java server focused on progression, upgrades, planets and custom content.",
-    btnDiscord:"Join Discord",
-    btnDonate:"Donate via PayPal",
-    core:"Core Features",
-    f1:"⚔ Progress by upgrading tools, weapons and armor",
-    f2:"🌍 Multiple planets with increasing difficulty",
-    f3:"🐉 Custom mobs, drops, pets and enchantments",
-    f4:"⚙ Java Edition • Versions 1.21+",
-    storeTitle:"Support the Server",
-    storeDesc:"Donations are optional. All donated money is reinvested into the server development.",
-    discordTitle:"Discord Community",
-    discordDesc:"Join our Discord server for news, updates and communication.",
-    footer:"© 2025 NexoraMC — All rights reserved."
-  },
-  bg:{
-    desc:"Fantasy Minecraft Java сървър с прогресия, upgrade-и, планети и custom съдържание.",
-    btnDiscord:"Влез в Discord",
-    btnDonate:"Донейт чрез PayPal",
-    core:"Основни характеристики",
-    f1:"⚔ Прогрес чрез upgrade на оръжия и инструменти",
-    f2:"🌍 Различни планети с нарастваща трудност",
-    f3:"🐉 Custom мобове, предмети, pets и enchant-и",
-    f4:"⚙ Java Edition • Версии 1.21+",
-    storeTitle:"Подкрепа на сървъра",
-    storeDesc:"Даренията са доброволни и се влагат обратно в развитието на сървъра.",
-    discordTitle:"Discord общност",
-    discordDesc:"Влез в Discord за новини, помощ и комуникация.",
-    footer:"© 2025 NexoraMC — Всички права запазени."
-  }
-};
-
+/* language */
 function setLang(l){
-  for(const id in content[l]){
-    if(document.getElementById(id)){
-      document.getElementById(id).innerText=content[l][id];
-    }
-  }
-  document.getElementById("btnDiscord").href="https://discord.gg/drtUuE3s9C";
-  document.getElementById("btnDonate").href="https://www.paypal.com/donate/?business=sorelygone@gmail.com&currency_code=EUR";
+  document.querySelectorAll("[data-bg]").forEach(e=>{
+    e.textContent = l==="bg" ? e.dataset.bg : e.dataset.en;
+  });
 }
-setLang("en");
+setLang("bg");
 
-/* SCROLL */
-document.addEventListener("scroll",()=>{
-  document.querySelectorAll(".reveal").forEach(e=>{
-    if(e.getBoundingClientRect().top < window.innerHeight-100){
-      e.classList.add("active");
-    }
-  });
+/* reveal */
+const obs=new IntersectionObserver(e=>{
+  e.forEach(x=>x.isIntersecting&&x.target.classList.add("active"))
 });
+document.querySelectorAll(".reveal").forEach(r=>obs.observe(r));
 
-/* PARTICLES */
+/* particles */
 const c=document.getElementById("particles"),ctx=c.getContext("2d");
-function resize(){c.width=innerWidth;c.height=innerHeight}
-resize();onresize=resize;
-let p=[...Array(100)].map(()=>({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*2+1}));
-(function draw(){
-  ctx.clearRect(0,0,c.width,c.height);
-  ctx.fillStyle="#c084fc";
-  p.forEach(o=>{
-    ctx.beginPath();
-    ctx.arc(o.x,o.y,o.r,0,Math.PI*2);
-    ctx.fill();
-    o.y+=0.25;
-    if(o.y>c.height)o.y=0;
-  });
-  requestAnimationFrame(draw);
-})();
+let w,h,p=[];
+function resize(){w=c.width=innerWidth;h=c.height=innerHeight}
+window.onresize=resize;resize();
+for(let i=0;i<80;i++)p.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*2+1,s:Math.random()+.3});
+function anim(){
+ ctx.clearRect(0,0,w,h);
+ ctx.fillStyle="#b56cff";
+ p.forEach(o=>{
+  ctx.beginPath();
+  ctx.arc(o.x,o.y,o.r,0,Math.PI*2);
+  ctx.fill();
+  o.y+=o.s;if(o.y>h)o.y=0;
+ });
+ requestAnimationFrame(anim);
+}
+anim();
 </script>
 
 </body>
 </html>
+
 
 
 
