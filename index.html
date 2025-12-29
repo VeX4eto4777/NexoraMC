@@ -9,141 +9,129 @@
 
 <style>
 :root{
-  --p1:#7f3cff;
-  --p2:#c08bff;
-  --bg1:#090414;
-  --bg2:#160b2f;
+ --p1:#8a4dff;
+ --p2:#c39bff;
+ --bg1:#090414;
+ --bg2:#1a0d3b;
 }
 
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Orbitron',sans-serif}
 
 body{
-  background:radial-gradient(circle at top,var(--bg2),var(--bg1));
-  color:#fff;
-  overflow-x:hidden;
+ background:radial-gradient(circle at top,var(--bg2),var(--bg1));
+ color:#fff;
+ overflow-x:hidden;
 }
 
-/* ===== PARTICLES ===== */
 #particles{position:fixed;inset:0;z-index:-2}
 
-/* ===== PLANETS ===== */
 .planet{
-  position:absolute;
-  border-radius:50%;
-  filter:blur(.2px);
-  opacity:.7;
-  animation:float 14s ease-in-out infinite;
+ position:absolute;border-radius:50%;opacity:.6;
+ background:radial-gradient(circle,var(--p2),#3b1478);
+ animation:float 16s ease-in-out infinite;
 }
-.p1{width:180px;height:180px;background:radial-gradient(circle,#c08bff,#4b1ea3);top:20%;left:8%}
-.p2{width:120px;height:120px;background:radial-gradient(circle,#9f7bff,#2a0d66);top:65%;right:10%;animation-duration:18s}
+.p1{width:180px;height:180px;top:18%;left:6%}
+.p2{width:120px;height:120px;bottom:18%;right:8%;animation-duration:22s}
 
-@keyframes float{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-25px)}
-}
+@keyframes float{50%{transform:translateY(-25px)}}
 
-/* ===== LANGUAGE ===== */
-.lang{position:fixed;top:20px;right:20px;z-index:10}
+.lang{position:fixed;top:20px;right:20px;z-index:20}
 .lang button{
-  background:none;border:1px solid var(--p1);color:#fff;
-  padding:6px 12px;margin-left:6px;border-radius:6px;cursor:pointer
+ background:none;border:1px solid var(--p1);color:#fff;
+ padding:6px 12px;border-radius:6px;cursor:pointer;margin-left:6px
 }
-.lang button.active{background:var(--p1)}
+.lang .active{background:var(--p1)}
 
-/* ===== HEADER ===== */
 header{
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  padding:40px;
+ min-height:100vh;
+ display:flex;
+ flex-direction:column;
+ align-items:center;
+ justify-content:center;
+ text-align:center;
+ padding:40px;
 }
 
 .logo-wrap{perspective:1000px}
 .logo{
-  width:300px;
-  transition:.15s;
-  filter:drop-shadow(0 0 30px rgba(170,100,255,.7));
+ width:360px;
+ transition:.15s;
+ filter:drop-shadow(0 0 40px rgba(190,130,255,.9));
 }
-.logo:hover{filter:drop-shadow(0 0 60px rgba(200,140,255,1))}
+.logo:hover{filter:drop-shadow(0 0 80px rgba(220,170,255,1))}
 
 h1{
-  font-size:3.4rem;
-  margin-top:20px;
-  background:linear-gradient(90deg,var(--p1),var(--p2));
-  -webkit-background-clip:text;
-  color:transparent;
+ font-size:3.6rem;
+ margin-top:20px;
+ background:linear-gradient(90deg,var(--p1),var(--p2));
+ -webkit-background-clip:text;color:transparent;
 }
 
 .subtitle{
-  max-width:720px;
-  margin-top:15px;
-  color:#d2c8ff;
+ max-width:780px;
+ margin-top:15px;
+ color:#ddd3ff;
 }
 
-/* ===== SECTIONS ===== */
 section{padding:90px 20px;max-width:1200px;margin:auto}
 section h2{
-  font-size:2.5rem;
-  margin-bottom:40px;
-  text-align:center;
-  background:linear-gradient(90deg,var(--p1),var(--p2));
-  -webkit-background-clip:text;
-  color:transparent;
+ text-align:center;
+ font-size:2.6rem;
+ margin-bottom:40px;
+ background:linear-gradient(90deg,var(--p1),var(--p2));
+ -webkit-background-clip:text;color:transparent;
 }
 
-/* ===== FEATURES ===== */
 .features{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:25px;
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+ gap:25px;
 }
 .card{
-  background:rgba(255,255,255,.05);
-  border-radius:16px;
-  padding:26px;
-  backdrop-filter:blur(10px);
-  transition:.3s;
+ background:rgba(255,255,255,.06);
+ border-radius:18px;
+ padding:28px;
+ backdrop-filter:blur(12px);
+ transition:.35s;
 }
 .card:hover{
-  transform:translateY(-8px);
-  box-shadow:0 0 40px rgba(160,90,255,.5);
+ transform:translateY(-10px);
+ box-shadow:0 0 45px rgba(170,110,255,.6);
 }
 .card span{font-size:2rem}
+.card p{margin-top:10px;color:#e3dbff;font-size:.95rem}
 
-/* ===== DONATE ===== */
 .donate{text-align:center}
-.donate p{max-width:720px;margin:20px auto;color:#d7ccff}
+.donate p{max-width:760px;margin:20px auto;color:#e0d8ff}
 .donate a{
-  display:inline-block;
-  margin-top:25px;
-  padding:16px 36px;
-  border-radius:50px;
-  background:linear-gradient(90deg,var(--p1),var(--p2));
-  color:#fff;text-decoration:none;
-  box-shadow:0 0 45px rgba(160,100,255,.6);
-  transition:.3s;
+ display:inline-block;margin-top:25px;
+ padding:16px 38px;border-radius:50px;
+ background:linear-gradient(90deg,var(--p1),var(--p2));
+ color:#fff;text-decoration:none;
+ box-shadow:0 0 45px rgba(170,120,255,.7);
+ transition:.3s;
 }
 .donate a:hover{transform:scale(1.06)}
 
-/* ===== STATUS ===== */
-.status{text-align:center;font-size:1.1rem;color:#cfc6ff}
-
-/* ===== AUDIO ===== */
-#audioBtn{
-  position:fixed;
-  bottom:20px;right:20px;
-  background:linear-gradient(90deg,var(--p1),var(--p2));
-  border:none;border-radius:50%;
-  width:55px;height:55px;
-  color:#fff;font-size:1.2rem;
-  cursor:pointer;
-  box-shadow:0 0 30px rgba(160,90,255,.7);
+.discord{text-align:center}
+.discord iframe{
+ border-radius:16px;
+ box-shadow:0 0 40px rgba(160,100,255,.5);
 }
 
-footer{text-align:center;padding:40px;color:#a99cff}
+#audioBtn{
+ position:fixed;bottom:20px;right:20px;
+ width:55px;height:55px;border-radius:50%;
+ border:none;cursor:pointer;
+ background:linear-gradient(90deg,var(--p1),var(--p2));
+ color:#fff;font-size:1.2rem;
+ box-shadow:0 0 30px rgba(160,90,255,.7);
+}
+
+.reveal{opacity:0;transform:translateY(60px);transition:.9s}
+.reveal.show{opacity:1;transform:none}
+
+footer{text-align:center;padding:40px;color:#b9abff}
 </style>
 </head>
 
@@ -154,50 +142,68 @@ footer{text-align:center;padding:40px;color:#a99cff}
 <div class="planet p2"></div>
 
 <div class="lang">
-  <button id="en" class="active" onclick="setLang('en')">EN</button>
-  <button id="bg" onclick="setLang('bg')">BG</button>
+ <button id="en" class="active">EN</button>
+ <button id="bg">BG</button>
 </div>
 
 <header>
-  <div class="logo-wrap" id="parallax">
-    <img src="logo.png" class="logo">
-  </div>
-
-  <h1>NexoraMC</h1>
-
-  <p class="subtitle"
-     data-en="A fantasy Minecraft progression server with planets, upgrades and endless power."
-     data-bg="Fantasy Minecraft сървър с планети, ъпгрейди и безкрайно развитие.">
-  </p>
+ <div class="logo-wrap" id="parallax">
+  <img src="logo.png" class="logo">
+ </div>
+ <h1>NexoraMC</h1>
+ <p class="subtitle reveal"
+ data-en="A fantasy Minecraft progression server where effort defines power."
+ data-bg="Fantasy Minecraft сървър, където усилията определят силата.">
+ A fantasy Minecraft progression server where effort defines power.
+ </p>
 </header>
 
-<section>
-<h2 data-en="Core Features" data-bg="Основни Функции"></h2>
+<section class="reveal">
+<h2 data-en="Core Features" data-bg="Основни Функции">Core Features</h2>
 <div class="features">
-  <div class="card"><span>🪐</span><p data-en="Planet progression system" data-bg="Прогресия чрез планети"></p></div>
-  <div class="card"><span>⚔️</span><p data-en="Custom mobs & upgrades" data-bg="Custom мобове и ъпгрейди"></p></div>
-  <div class="card"><span>🐉</span><p data-en="Pets & enchant systems" data-bg="Pets и enchant системи"></p></div>
-  <div class="card"><span>⛏️</span><p data-en="Mining, PvE & PvP" data-bg="Mining, PvE и PvP"></p></div>
+ <div class="card">
+  <span>🪐</span>
+  <p data-en="Progress through unique planets with custom mobs and upgrades."
+     data-bg="Прогресирай през уникални планети с custom мобове и ъпгрейди.">
+     Progress through unique planets with custom mobs and upgrades.
+  </p>
+ </div>
+ <div class="card">
+  <span>⚔️</span>
+  <p data-en="Deep weapon, tool and armor progression systems."
+     data-bg="Дълбоки системи за развитие на оръжия, инструменти и броня.">
+     Deep weapon, tool and armor progression systems.
+  </p>
+ </div>
+ <div class="card">
+  <span>🐉</span>
+  <p data-en="Pets, enchantments and long-term progression without resets."
+     data-bg="Pets, enchant-и и дългосрочна прогресия без ресети.">
+     Pets, enchantments and long-term progression without resets.
+  </p>
+ </div>
+ <div class="card">
+  <span>⛏️</span>
+  <p data-en="Mining, PvE and PvP combined into one experience."
+     data-bg="Mining, PvE и PvP комбинирани в едно изживяване.">
+     Mining, PvE and PvP combined into one experience.
+  </p>
+ </div>
 </div>
 </section>
 
-<section>
-<h2 data-en="Lore" data-bg="История"></h2>
-<p class="status"
-data-en="The universe shattered into planets. Only the strongest will reach the end."
-data-bg="Вселената се разпадна на планети. Само най-силните ще стигнат края.">
-</p>
+<section class="discord reveal">
+<h2>Discord</h2>
+<iframe src="https://discord.com/widget?id=YOUR_SERVER_ID&theme=dark"
+ width="350" height="500" allowtransparency="true"
+ sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
 </section>
 
-<section>
-<h2 data-en="Server Status" data-bg="Статус на Сървъра"></h2>
-<p class="status" id="status">Loading...</p>
-</section>
-
-<section class="donate">
-<h2 data-en="Support the Server" data-bg="Подкрепи Сървъра"></h2>
-<p data-en="PayPal donations are active. All funds go back into server development."
-   data-bg="PayPal работи. Всички средства се влагат обратно в сървъра.">
+<section class="donate reveal">
+<h2 data-en="Support the Server" data-bg="Подкрепи Сървъра">Support the Server</h2>
+<p data-en="PayPal donations are active. All funds are reinvested back into NexoraMC."
+   data-bg="PayPal работи. Всички средства се влагат обратно в NexoraMC.">
+   PayPal donations are active. All funds are reinvested back into NexoraMC.
 </p>
 <a href="https://paypal.me/yourlink" target="_blank">Donate via PayPal</a>
 </section>
@@ -205,40 +211,46 @@ data-bg="Вселената се разпадна на планети. Само 
 <footer>© NexoraMC • Java 1.21+</footer>
 
 <button id="audioBtn">🎵</button>
-<audio id="bgAudio" loop src="ambient.mp3"></audio>
+<audio id="bgAudio" src="ambient.mp3" loop></audio>
 
 <script>
 /* LANGUAGE */
 function setLang(l){
- document.querySelectorAll("[data-en]").forEach(e=>e.textContent=e.dataset[l]);
+ document.querySelectorAll("[data-en]").forEach(e=>{
+   e.textContent = e.dataset[l];
+ });
  en.classList.toggle("active",l==="en");
  bg.classList.toggle("active",l==="bg");
+ localStorage.setItem("lang",l);
 }
+
+const savedLang = localStorage.getItem("lang") || "en";
+setLang(savedLang);
+
+en.onclick=()=>setLang("en");
+bg.onclick=()=>setLang("bg");
 
 /* PARALLAX */
 addEventListener("mousemove",e=>{
- const x=(e.clientX-innerWidth/2)/30;
- const y=(innerHeight/2-e.clientY)/30;
+ const x=(e.clientX-innerWidth/2)/35;
+ const y=(innerHeight/2-e.clientY)/35;
  parallax.style.transform=`rotateY(${x}deg) rotateX(${y}deg)`;
 });
 
 /* PARTICLES */
 const c=document.getElementById("particles"),x=c.getContext("2d");
 function r(){c.width=innerWidth;c.height=innerHeight}r();onresize=r;
-let p=[...Array(90)].map(()=>({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*2+1,s:Math.random()}));
+let p=[...Array(80)].map(()=>({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*2+1,s:Math.random()}));
 (function d(){
  x.clearRect(0,0,c.width,c.height);
  p.forEach(a=>{a.y+=a.s;if(a.y>c.height)a.y=0;
- x.beginPath();x.arc(a.x,a.y,a.r,0,7);x.fillStyle="rgba(160,100,255,.6)";x.fill()});
+ x.beginPath();x.arc(a.x,a.y,a.r,0,7);x.fillStyle="rgba(170,110,255,.6)";x.fill()});
  requestAnimationFrame(d);
 })();
 
-/* STATUS */
-fetch("https://api.mcstatus.io/v2/status/java/nexoramc")
-.then(r=>r.json())
-.then(d=>{
- status.textContent=d.online?"Online • Players: "+d.players.online:"Offline";
-});
+/* REVEAL */
+const io=new IntersectionObserver(e=>e.forEach(v=>v.isIntersecting&&v.target.classList.add("show")));
+document.querySelectorAll(".reveal").forEach(e=>io.observe(e));
 
 /* AUDIO */
 const a=document.getElementById("bgAudio"),b=document.getElementById("audioBtn");
@@ -247,6 +259,7 @@ b.onclick=()=>a.paused?(a.play(),b.textContent="🔊"):(a.pause(),b.textContent=
 
 </body>
 </html>
+
 
 
 
