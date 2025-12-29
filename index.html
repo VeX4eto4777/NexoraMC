@@ -1,134 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NexoraMC</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
-        }
+<meta charset="UTF-8">
+<title>NexoraMC</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        body {
-            margin: 0;
-            min-height: 100vh;
-            background: radial-gradient(circle at top, #2f4f5f, #0f1f26);
-            color: #ffffff;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 3.2rem;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
-        }
-
-        .subtitle {
-            max-width: 800px;
-            font-size: 1.05rem;
-            line-height: 1.6;
-            opacity: 0.9;
-            margin-bottom: 25px;
-        }
-
-        .info {
-            display: flex;
-            gap: 25px;
-            margin-bottom: 35px;
-            flex-wrap: wrap;
-            justify-content: center;
-            font-size: 0.95rem;
-            opacity: 0.85;
-        }
-
-        .info span {
-            background: rgba(255,255,255,0.08);
-            padding: 8px 14px;
-            border-radius: 8px;
-        }
-
-        .buttons {
-            display: flex;
-            gap: 18px;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-bottom: 50px;
-        }
-
-        .btn {
-            background: #f39c12;
-            color: #000;
-            text-decoration: none;
-            padding: 14px 26px;
-            border-radius: 10px;
-            font-weight: bold;
-            transition: transform 0.15s ease, box-shadow 0.15s ease;
-            box-shadow: 0 6px 0 #c97f0a;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 0 #c97f0a;
-        }
-
-        .btn.secondary {
-            background: #1abc9c;
-            box-shadow: 0 6px 0 #148f77;
-        }
-
-        .btn.secondary:hover {
-            box-shadow: 0 8px 0 #148f77;
-        }
-
-        footer {
-            position: absolute;
-            bottom: 25px;
-            max-width: 800px;
-            font-size: 0.85rem;
-            opacity: 0.75;
-            padding: 0 20px;
-        }
-
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 2.4rem;
-            }
-        }
-    </style>
+<style>
+body{
+    margin:0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(180deg,#0a1418,#101f26);
+    color:#fff;
+}
+header{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+.hero{
+    max-width:1000px;
+    padding:40px;
+}
+.logo{
+    width:200px;
+    margin-bottom:25px;
+    filter: drop-shadow(0 0 20px #b100ff);
+}
+h1{
+    font-size:56px;
+    margin-bottom:15px;
+}
+.subtitle{
+    font-size:20px;
+    opacity:.9;
+    margin-bottom:30px;
+}
+.buttons a{
+    display:inline-block;
+    margin:10px;
+    padding:15px 32px;
+    border-radius:12px;
+    background:linear-gradient(135deg,#ffb000,#ff8c00);
+    color:#000;
+    font-weight:700;
+    text-decoration:none;
+    transition:.2s;
+}
+.buttons a:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(255,165,0,.4);
+}
+section{
+    padding:80px 20px;
+    text-align:center;
+}
+.section-title{
+    font-size:36px;
+    margin-bottom:40px;
+}
+.features{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+    max-width:1100px;
+    margin:auto;
+}
+.card{
+    background:#0f242d;
+    padding:25px;
+    border-radius:16px;
+    transition:.2s;
+}
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 0 20px rgba(0,200,255,.2);
+}
+.card h3{
+    margin-bottom:10px;
+}
+.progression{
+    max-width:900px;
+    margin:auto;
+    font-size:18px;
+    line-height:1.7;
+    opacity:.9;
+}
+footer{
+    padding:40px 20px;
+    text-align:center;
+    font-size:14px;
+    opacity:.7;
+}
+</style>
 </head>
+
 <body>
 
-    <h1>NexoraMC</h1>
+<header>
+<div class="hero">
+<img src="logo.png" class="logo">
+<h1>NexoraMC</h1>
+<p class="subtitle">
+Custom Minecraft Java server (1.21+) focused on progression, upgrades and long-term gameplay.
+</p>
+<div class="buttons">
+<a href="https://discord.gg/drtUuE3s9C" target="_blank">Join Discord</a>
+<a href="mailto:sorelygone@gmail.com">Donate</a>
+</div>
+</div>
+</header>
 
-    <div class="subtitle">
-        NexoraMC is a custom Minecraft Java server (1.21+) focused on long-term progression.  
-        Upgrade tools, weapons, pets and enchantments, defeat custom mobs, mine resources, fight players  
-        and unlock new planets as you advance deeper into the universe.
-    </div>
+<section>
+<h2 class="section-title">Core Features</h2>
+<div class="features">
+<div class="card">
+<h3>⚔ Custom Mobs</h3>
+<p>Unique mobs with custom drops and abilities.</p>
+</div>
+<div class="card">
+<h3>🔧 Tool Upgrades</h3>
+<p>Upgrade tools and weapons to progress further.</p>
+</div>
+<div class="card">
+<h3>🌍 Planets</h3>
+<p>Unlock new planets with harder content and rewards.</p>
+</div>
+<div class="card">
+<h3>🐾 Pets & Enchants</h3>
+<p>Powerful pets and custom enchantments.</p>
+</div>
+</div>
+</section>
 
-    <div class="info">
-        <span>Java Edition</span>
-        <span>Version 1.21+</span>
-        <span>Status: Development / Coming Soon</span>
-    </div>
+<section>
+<h2 class="section-title">Progression System</h2>
+<p class="progression">
+Start on Earth and advance through multiple planets.
+Progress by killing mobs, mining blocks and completing challenges.
+Your goal is to reach the highest tier possible by upgrading your gear and abilities.
+</p>
+</section>
 
-    <div class="buttons">
-        <a class="btn secondary" href="https://discord.gg/drtUuE3s9C" target="_blank">Join Discord</a>
-        <a class="btn" href="https://www.paypal.com" target="_blank">Donate via PayPal</a>
-        <a class="btn secondary" href="#" onclick="alert('IP will be available soon!')">Play Now</a>
-    </div>
+<section>
+<h2 class="section-title">Reviews</h2>
+<p>Share your feedback and help us improve the server.</p>
+<a class="buttons" href="https://forms.google.com" target="_blank">Leave a Review</a>
+</section>
 
-    <footer>
-        Donations are completely optional.  
-        All donated money will be reinvested back into the server to improve gameplay, performance  
-        and future content. Donating does not provide unfair advantages.
-    </footer>
+<section>
+<h2 class="section-title">Support the Server</h2>
+<p class="progression">
+Donations are optional. All donated money is reinvested back into the server
+to improve performance, content and future updates.
+</p>
+<a class="buttons" href="mailto:sorelygone@gmail.com">Donate via PayPal</a>
+</section>
+
+<footer>
+© NexoraMC – Java Edition only | Not pay-to-win
+</footer>
 
 </body>
 </html>
+
 
