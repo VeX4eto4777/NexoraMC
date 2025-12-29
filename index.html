@@ -9,8 +9,8 @@
 
 <style>
 :root{
-  --p1:#6a00ff;
-  --p2:#a855f7;
+  --p1:#7b2cff;
+  --p2:#c084fc;
   --bg:#05000d;
 }
 
@@ -18,12 +18,11 @@
 
 body{
   font-family:'Orbitron',sans-serif;
-  background:radial-gradient(circle at top,#1a0033,#05000d);
+  background:radial-gradient(circle at top,#16002b,#05000d);
   color:white;
   overflow-x:hidden;
 }
 
-/* PARTICLES */
 #particles{
   position:fixed;
   inset:0;
@@ -35,7 +34,7 @@ body{
   position:fixed;
   top:20px;
   right:20px;
-  z-index:10;
+  z-index:20;
 }
 .lang button{
   background:none;
@@ -54,26 +53,26 @@ header{
   justify-content:center;
   align-items:center;
   text-align:center;
+  padding:20px;
 }
 
 .logo{
-  width:320px;
-  filter:drop-shadow(0 0 45px var(--p1));
-  transition:.4s;
+  width:360px;
+  filter:drop-shadow(0 0 55px var(--p1));
 }
 
 h1{
-  font-size:3rem;
-  margin-top:20px;
+  font-size:3.2rem;
+  margin-top:25px;
   background:linear-gradient(90deg,var(--p1),var(--p2));
   -webkit-background-clip:text;
   color:transparent;
 }
 
 p{
-  max-width:760px;
+  max-width:800px;
   margin:20px auto;
-  line-height:1.6;
+  line-height:1.7;
   opacity:.9;
 }
 
@@ -83,22 +82,22 @@ p{
   gap:20px;
   flex-wrap:wrap;
   justify-content:center;
-  margin-top:25px;
+  margin-top:30px;
 }
 
 .btn{
-  padding:14px 32px;
+  padding:14px 36px;
   border-radius:40px;
   background:linear-gradient(135deg,var(--p1),var(--p2));
   color:white;
   text-decoration:none;
   font-weight:bold;
-  box-shadow:0 0 25px rgba(168,85,247,.6);
+  box-shadow:0 0 30px rgba(192,132,252,.6);
   transition:.3s;
 }
 .btn:hover{
-  transform:translateY(-3px);
-  box-shadow:0 0 45px rgba(168,85,247,1);
+  transform:translateY(-4px);
+  box-shadow:0 0 55px rgba(192,132,252,1);
 }
 
 /* SECTIONS */
@@ -108,45 +107,45 @@ section{
 }
 
 .title{
-  font-size:2.3rem;
+  font-size:2.4rem;
   color:var(--p2);
-  margin-bottom:25px;
+  margin-bottom:30px;
 }
 
 .features{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:25px;
-  max-width:1100px;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+  max-width:1150px;
   margin:auto;
 }
 
 .card{
-  background:rgba(255,255,255,.04);
-  border-radius:18px;
-  padding:25px;
-  box-shadow:0 0 30px rgba(168,85,247,.25);
+  background:rgba(255,255,255,.05);
+  border-radius:20px;
+  padding:30px;
+  box-shadow:0 0 35px rgba(192,132,252,.25);
 }
 
 /* DISCORD */
 .discord{
   display:flex;
   justify-content:center;
-  margin-top:30px;
+  margin-top:35px;
 }
 
 /* FOOTER */
 footer{
-  padding:40px;
-  background:#05000d;
+  padding:45px 20px;
+  background:#04000a;
   text-align:center;
-  opacity:.8;
+  opacity:.85;
 }
 
 /* SCROLL */
 .reveal{
   opacity:0;
-  transform:translateY(40px);
+  transform:translateY(50px);
   transition:1s;
 }
 .reveal.active{
@@ -171,8 +170,8 @@ footer{
   <p id="desc"></p>
 
   <div class="buttons">
-    <a class="btn" href="https://discord.gg/drtUuE3s9C" target="_blank">Discord</a>
-    <a class="btn" href="https://www.paypal.com/donate/?business=sorelygone@gmail.com&currency_code=EUR" target="_blank">Donate</a>
+    <a class="btn" id="btnDiscord" target="_blank"></a>
+    <a class="btn" id="btnDonate" target="_blank"></a>
   </div>
 </header>
 
@@ -205,86 +204,84 @@ footer{
   </div>
 </section>
 
-<footer>
-  © 2025 NexoraMC — Donations are optional and reinvested into the server.
-</footer>
+<footer id="footerText"></footer>
 
 <script>
-/* LANGUAGE */
-const text={
+const content={
   en:{
-    desc:"A fantasy Minecraft Java server focused on progression, upgrades and exploration.",
+    desc:"A fantasy Minecraft Java server focused on progression, upgrades, planets and custom content.",
+    btnDiscord:"Join Discord",
+    btnDonate:"Donate via PayPal",
     core:"Core Features",
-    f1:"⚔ Custom progression and upgrades",
-    f2:"🌍 Planet-based worlds",
-    f3:"🐉 Custom mobs and unique drops",
-    f4:"⚙ Java 1.21+ supported",
-    storeTitle:"Store",
-    storeDesc:"Support the server through optional donations.",
+    f1:"⚔ Progress by upgrading tools, weapons and armor",
+    f2:"🌍 Multiple planets with increasing difficulty",
+    f3:"🐉 Custom mobs, drops, pets and enchantments",
+    f4:"⚙ Java Edition • Versions 1.21+",
+    storeTitle:"Support the Server",
+    storeDesc:"Donations are optional. All donated money is reinvested into the server development.",
     discordTitle:"Discord Community",
-    discordDesc:"Join our Discord to chat and get updates."
+    discordDesc:"Join our Discord server for news, updates and communication.",
+    footer:"© 2025 NexoraMC — All rights reserved."
   },
   bg:{
-    desc:"Fantasy Minecraft Java сървър с прогресия, upgrade-и и custom съдържание.",
+    desc:"Fantasy Minecraft Java сървър с прогресия, upgrade-и, планети и custom съдържание.",
+    btnDiscord:"Влез в Discord",
+    btnDonate:"Донейт чрез PayPal",
     core:"Основни характеристики",
-    f1:"⚔ Custom прогресия и upgrade-и",
-    f2:"🌍 Планети с различна трудност",
-    f3:"🐉 Custom мобове и уникални предмети",
-    f4:"⚙ Поддръжка на Java 1.21+",
-    storeTitle:"Магазин",
-    storeDesc:"Можеш да подкрепиш сървъра чрез доброволни дарения.",
+    f1:"⚔ Прогрес чрез upgrade на оръжия и инструменти",
+    f2:"🌍 Различни планети с нарастваща трудност",
+    f3:"🐉 Custom мобове, предмети, pets и enchant-и",
+    f4:"⚙ Java Edition • Версии 1.21+",
+    storeTitle:"Подкрепа на сървъра",
+    storeDesc:"Даренията са доброволни и се влагат обратно в развитието на сървъра.",
     discordTitle:"Discord общност",
-    discordDesc:"Влез в Discord, за да общуваш и следиш новините."
+    discordDesc:"Влез в Discord за новини, помощ и комуникация.",
+    footer:"© 2025 NexoraMC — Всички права запазени."
   }
 };
 
 function setLang(l){
-  Object.keys(text[l]).forEach(id=>{
-    document.getElementById(id).innerText=text[l][id];
-  });
+  for(const id in content[l]){
+    if(document.getElementById(id)){
+      document.getElementById(id).innerText=content[l][id];
+    }
+  }
+  document.getElementById("btnDiscord").href="https://discord.gg/drtUuE3s9C";
+  document.getElementById("btnDonate").href="https://www.paypal.com/donate/?business=sorelygone@gmail.com&currency_code=EUR";
 }
 setLang("en");
 
 /* SCROLL */
-const reveals=document.querySelectorAll(".reveal");
-window.addEventListener("scroll",()=>{
-  reveals.forEach(r=>{
-    if(r.getBoundingClientRect().top < window.innerHeight-100){
-      r.classList.add("active");
+document.addEventListener("scroll",()=>{
+  document.querySelectorAll(".reveal").forEach(e=>{
+    if(e.getBoundingClientRect().top < window.innerHeight-100){
+      e.classList.add("active");
     }
   });
 });
 
 /* PARTICLES */
-const c=document.getElementById("particles");
-const ctx=c.getContext("2d");
-function resize(){
-  c.width=innerWidth;
-  c.height=innerHeight;
-}
-resize(); window.onresize=resize;
-
-let p=[];
-for(let i=0;i<90;i++){
-  p.push({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*2+1});
-}
-function draw(){
+const c=document.getElementById("particles"),ctx=c.getContext("2d");
+function resize(){c.width=innerWidth;c.height=innerHeight}
+resize();onresize=resize;
+let p=[...Array(100)].map(()=>({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*2+1}));
+(function draw(){
   ctx.clearRect(0,0,c.width,c.height);
-  ctx.fillStyle="#a855f7";
+  ctx.fillStyle="#c084fc";
   p.forEach(o=>{
     ctx.beginPath();
     ctx.arc(o.x,o.y,o.r,0,Math.PI*2);
     ctx.fill();
-    o.y+=0.3;
-    if(o.y>c.height) o.y=0;
+    o.y+=0.25;
+    if(o.y>c.height)o.y=0;
   });
   requestAnimationFrame(draw);
-}
-draw();
+})();
 </script>
 
 </body>
 </html>
+
 
 
 
