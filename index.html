@@ -1,164 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NexoraMC</title>
 
 <style>
-:root {
-  --accent1: #7f5cff;
-  --accent2: #00eaff;
-  --bg: #0b0e1a;
+:root{
+  --purple1:#a56bff;
+  --purple2:#6f3cff;
+  --bg1:#0a0716;
+  --bg2:#140b2d;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Segoe UI",sans-serif}
 
-body {
-  background: radial-gradient(circle at top, #11152b, #070914);
-  color: white;
-  overflow-x: hidden;
+body{
+  background:radial-gradient(circle at top,var(--bg2),var(--bg1));
+  color:#fff;
+  overflow-x:hidden;
 }
 
 /* PARTICLES */
-canvas {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
+canvas{
+  position:fixed;
+  inset:0;
+  z-index:-1;
 }
 
-/* HEADER */
-header {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 40px;
-  perspective: 1000px;
+/* LANGUAGE */
+.lang{
+  position:fixed;
+  top:20px;
+  right:20px;
+  z-index:10;
+}
+.lang button{
+  background:rgba(255,255,255,.05);
+  border:1px solid var(--purple1);
+  color:white;
+  padding:6px 12px;
+  border-radius:10px;
+  cursor:pointer;
 }
 
-.hero {
-  transform-style: preserve-3d;
+/* HERO */
+header{
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  perspective:1200px;
+}
+
+.hero{
+  transform-style:preserve-3d;
 }
 
 /* LOGO */
-.logo {
-  width: 360px;
-  margin-bottom: 20px;
-  filter: drop-shadow(0 0 25px var(--accent1));
-  transition: transform 0.4s ease, filter 0.4s ease;
+.logo{
+  width:420px;
+  margin-bottom:25px;
+  filter:drop-shadow(0 0 35px var(--purple1));
+  transition:transform .4s,filter .4s;
 }
-
-.logo:hover {
-  transform: scale(1.08);
-  filter: drop-shadow(0 0 50px var(--accent2));
+.logo:hover{
+  transform:scale(1.1);
+  filter:drop-shadow(0 0 65px var(--purple2));
 }
 
 /* TITLE */
-h1 {
-  font-size: 3.2rem;
-  background: linear-gradient(270deg, var(--accent1), var(--accent2), var(--accent1));
-  background-size: 400% 400%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: gradientMove 6s ease infinite;
+h1{
+  font-size:3.4rem;
+  background:linear-gradient(270deg,var(--purple1),#e1c6ff,var(--purple2));
+  background-size:400% 400%;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:gradient 6s ease infinite;
+}
+@keyframes gradient{
+  0%{background-position:0%}
+  50%{background-position:100%}
+  100%{background-position:0%}
 }
 
-@keyframes gradientMove {
-  0% {background-position: 0%;}
-  50% {background-position: 100%;}
-  100% {background-position: 0%;}
-}
-
-.subtitle {
-  margin-top: 12px;
-  opacity: 0.85;
+.subtitle{
+  margin-top:14px;
+  opacity:.85;
+  font-size:1.1rem;
 }
 
 /* BUTTONS */
-.buttons {
-  margin-top: 35px;
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-  flex-wrap: wrap;
+.buttons{
+  margin-top:40px;
+  display:flex;
+  gap:18px;
+  justify-content:center;
+  flex-wrap:wrap;
 }
-
-.btn {
-  padding: 14px 26px;
-  border-radius: 30px;
-  border: none;
-  background: linear-gradient(135deg, var(--accent1), var(--accent2));
-  color: black;
-  font-weight: 600;
-  cursor: pointer;
-  transition: transform 0.3s, box-shadow 0.3s;
+.btn{
+  padding:15px 30px;
+  border-radius:40px;
+  border:none;
+  font-weight:600;
+  cursor:pointer;
+  background:linear-gradient(135deg,var(--purple1),var(--purple2));
+  color:black;
+  transition:.3s;
 }
-
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 30px var(--accent2);
+.btn:hover{
+  transform:translateY(-4px);
+  box-shadow:0 0 35px var(--purple1);
 }
 
 /* SECTIONS */
-section {
-  padding: 100px 8%;
-  text-align: center;
+section{
+  padding:110px 8%;
+  text-align:center;
 }
 
-.grid {
-  margin-top: 50px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 30px;
+.grid{
+  margin-top:50px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:35px;
 }
 
-.card {
-  background: rgba(255,255,255,0.05);
-  border-radius: 20px;
-  padding: 30px;
-  backdrop-filter: blur(10px);
-  transition: transform 0.4s, box-shadow 0.4s;
+.card{
+  background:rgba(255,255,255,.06);
+  border-radius:22px;
+  padding:35px;
+  backdrop-filter:blur(12px);
+  border:1px solid rgba(165,107,255,.15);
+  transition:.4s;
 }
-
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 0 35px rgba(127,92,255,0.4);
-}
-
-/* DONATE */
-.donate {
-  margin-top: 30px;
-}
-
-/* LANGUAGE SWITCH */
-.lang {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 10;
-}
-
-.lang button {
-  background: none;
-  border: 1px solid var(--accent1);
-  color: white;
-  padding: 6px 12px;
-  border-radius: 10px;
-  cursor: pointer;
+.card:hover{
+  transform:translateY(-12px);
+  box-shadow:0 0 45px rgba(165,107,255,.45);
 }
 
 /* FOOTER */
-footer {
-  padding: 40px;
-  opacity: 0.6;
-  font-size: 0.9rem;
+footer{
+  padding:45px;
+  opacity:.6;
+  font-size:.9rem;
+}
+
+/* SCROLL FADE */
+.fade{
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s;
+}
+.fade.show{
+  opacity:1;
+  transform:none;
 }
 </style>
 </head>
@@ -174,10 +171,10 @@ footer {
 
 <header>
   <div class="hero" id="parallax">
-    <img src="logo.png" class="logo" />
-    <h1 id="title">Custom Minecraft. Real Progression.</h1>
+    <img src="logo.png" class="logo">
+    <h1 id="title">Forge your power. Unlock new worlds.</h1>
     <p class="subtitle" id="subtitle">
-      Progress through upgrades, planets, mobs and power.
+      A fantasy progression-based Minecraft Java server.
     </p>
 
     <div class="buttons">
@@ -191,22 +188,30 @@ footer {
   </div>
 </header>
 
-<section>
-  <h2>Features</h2>
+<section class="fade">
+  <h2>The World of Nexora</h2>
+  <p style="margin-top:20px;opacity:.85">
+    NexoraMC is a long-term fantasy progression server where every upgrade matters.
+    Defeat custom creatures, unlock planets and evolve your gear.
+  </p>
+</section>
+
+<section class="fade">
+  <h2>Core Features</h2>
   <div class="grid">
-    <div class="card">⚔️ Custom Mobs</div>
+    <div class="card">⚔️ Custom Fantasy Mobs</div>
     <div class="card">🧱 Block & Mob Progression</div>
-    <div class="card">🌍 Multiple Planets</div>
-    <div class="card">🐾 Pets & Upgrades</div>
+    <div class="card">🌍 Planets & Worlds</div>
+    <div class="card">🐾 Pets & Gear Upgrades</div>
     <div class="card">🔮 Custom Enchants</div>
-    <div class="card">🧠 Deep Progress System</div>
+    <div class="card">🧠 Long-Term Progression</div>
   </div>
 </section>
 
-<section>
-  <h2>Support the Server</h2>
-  <p class="donate">
-    Donations are optional. All funds are reinvested back into the server.
+<section class="fade">
+  <h2>Support the World</h2>
+  <p style="margin-top:18px;opacity:.8">
+    Donations are optional. All contributions are reinvested into the server.
   </p>
 </section>
 
@@ -216,62 +221,49 @@ footer {
 
 <script>
 /* PARTICLES */
-const canvas = document.getElementById("particles");
-const ctx = canvas.getContext("2d");
-let w, h;
-function resize() {
-  w = canvas.width = window.innerWidth;
-  h = canvas.height = window.innerHeight;
-}
-window.addEventListener("resize", resize);
-resize();
-
-const particles = Array.from({length: 80}, () => ({
-  x: Math.random()*w,
-  y: Math.random()*h,
-  r: Math.random()*2+1,
-  vx: Math.random()*0.5,
-  vy: Math.random()*0.5
-}));
-
-function animate() {
-  ctx.clearRect(0,0,w,h);
-  for (let p of particles) {
-    p.x += p.vx;
-    p.y += p.vy;
-    if (p.x > w) p.x = 0;
-    if (p.y > h) p.y = 0;
-    ctx.fillStyle = "rgba(127,92,255,0.6)";
-    ctx.beginPath();
-    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-    ctx.fill();
-  }
-  requestAnimationFrame(animate);
-}
-animate();
+const c=document.getElementById("particles"),x=c.getContext("2d");
+let w,h;function r(){w=c.width=innerWidth;h=c.height=innerHeight}
+addEventListener("resize",r);r();
+let p=[...Array(90)].map(()=>({x:Math.random()*w,y:Math.random()*h,vx:Math.random()*.3,vy:Math.random()*.3,r:Math.random()*2+1}));
+function a(){
+  x.clearRect(0,0,w,h);
+  p.forEach(e=>{
+    e.x+=e.vx;e.y+=e.vy;
+    if(e.x>w)e.x=0;if(e.y>h)e.y=0;
+    x.fillStyle="rgba(165,107,255,.6)";
+    x.beginPath();x.arc(e.x,e.y,e.r,0,Math.PI*2);x.fill();
+  });
+  requestAnimationFrame(a);
+}a();
 
 /* PARALLAX */
-document.addEventListener("mousemove", e => {
-  const x = (window.innerWidth/2 - e.clientX)/30;
-  const y = (window.innerHeight/2 - e.clientY)/30;
-  document.getElementById("parallax").style.transform =
-    `rotateY(${x}deg) rotateX(${y}deg)`;
+addEventListener("mousemove",e=>{
+  const x2=(innerWidth/2-e.clientX)/30;
+  const y2=(innerHeight/2-e.clientY)/30;
+  parallax.style.transform=`rotateY(${x2}deg) rotateX(${y2}deg)`;
 });
 
+/* SCROLL */
+const f=document.querySelectorAll(".fade");
+addEventListener("scroll",()=>f.forEach(e=>{
+  if(e.getBoundingClientRect().top<innerHeight-80)e.classList.add("show");
+}));
+
 /* LANGUAGE */
-function setLang(lang) {
-  if (lang === "bg") {
-    title.innerText = "Custom Minecraft. Истински прогрес.";
-    subtitle.innerText = "Ъпгрейди, планети, мобове и развитие.";
-  } else {
-    title.innerText = "Custom Minecraft. Real Progression.";
-    subtitle.innerText = "Progress through upgrades, planets, mobs and power.";
+function setLang(l){
+  if(l==="bg"){
+    title.innerText="Изгради силата си. Отключи нови светове.";
+    subtitle.innerText="Fantasy прогресивен Minecraft Java сървър.";
+  }else{
+    title.innerText="Forge your power. Unlock new worlds.";
+    subtitle.innerText="A fantasy progression-based Minecraft Java server.";
   }
 }
 </script>
 
 </body>
 </html>
+
 
 
 
