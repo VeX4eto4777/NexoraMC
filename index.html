@@ -6,92 +6,141 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-body{
+:root{
+    --bg1:#05080d;
+    --bg2:#0b1620;
+    --accent:#7c5cff;
+    --accent2:#00d4ff;
+}
+
+*{
     margin:0;
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background: linear-gradient(180deg,#0a1418,#101f26);
+    padding:0;
+    box-sizing:border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body{
+    background:
+        radial-gradient(circle at top, rgba(124,92,255,.15), transparent 40%),
+        linear-gradient(180deg,var(--bg1),var(--bg2));
     color:#fff;
 }
+
+/* HERO */
 header{
     min-height:100vh;
     display:flex;
     align-items:center;
     justify-content:center;
     text-align:center;
+    padding:40px 20px;
 }
+
 .hero{
-    max-width:1000px;
-    padding:40px;
+    max-width:1100px;
 }
+
 .logo{
-    width:200px;
-    margin-bottom:25px;
-    filter: drop-shadow(0 0 20px #b100ff);
+    width:320px; /* <-- ПО-ГОЛЯМО ЛОГО */
+    margin-bottom:30px;
+    filter:
+        drop-shadow(0 0 25px rgba(124,92,255,.9))
+        drop-shadow(0 0 60px rgba(0,212,255,.4));
 }
+
 h1{
-    font-size:56px;
+    font-size:64px;
+    letter-spacing:3px;
     margin-bottom:15px;
 }
+
 .subtitle{
     font-size:20px;
     opacity:.9;
-    margin-bottom:30px;
+    max-width:800px;
+    margin:0 auto 40px;
+    line-height:1.7;
 }
+
 .buttons a{
     display:inline-block;
     margin:10px;
-    padding:15px 32px;
-    border-radius:12px;
-    background:linear-gradient(135deg,#ffb000,#ff8c00);
+    padding:16px 36px;
+    border-radius:14px;
+    background:linear-gradient(135deg,var(--accent),var(--accent2));
     color:#000;
     font-weight:700;
     text-decoration:none;
-    transition:.2s;
+    transition:.25s;
 }
+
 .buttons a:hover{
-    transform:translateY(-3px);
-    box-shadow:0 10px 25px rgba(255,165,0,.4);
+    transform:translateY(-4px) scale(1.03);
+    box-shadow:0 15px 40px rgba(124,92,255,.45);
 }
+
+/* SECTIONS */
 section{
-    padding:80px 20px;
-    text-align:center;
+    padding:90px 20px;
 }
+
 .section-title{
-    font-size:36px;
-    margin-bottom:40px;
+    text-align:center;
+    font-size:42px;
+    margin-bottom:55px;
 }
+
+/* FEATURES */
 .features{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:25px;
-    max-width:1100px;
+    max-width:1200px;
     margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
 }
+
 .card{
-    background:#0f242d;
-    padding:25px;
-    border-radius:16px;
-    transition:.2s;
+    background:
+        linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.01));
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:22px;
+    padding:30px;
+    backdrop-filter: blur(6px);
+    transition:.3s;
 }
+
 .card:hover{
-    transform:translateY(-5px);
-    box-shadow:0 0 20px rgba(0,200,255,.2);
+    transform:translateY(-8px);
+    box-shadow:0 25px 60px rgba(0,0,0,.6);
 }
+
 .card h3{
-    margin-bottom:10px;
+    font-size:22px;
+    margin-bottom:12px;
 }
+
+.card p{
+    opacity:.85;
+    line-height:1.6;
+}
+
+/* PROGRESSION */
 .progression{
     max-width:900px;
     margin:auto;
-    font-size:18px;
-    line-height:1.7;
+    font-size:19px;
+    line-height:1.8;
     opacity:.9;
+    text-align:center;
 }
+
+/* FOOTER */
 footer{
-    padding:40px 20px;
+    padding:50px 20px;
     text-align:center;
     font-size:14px;
-    opacity:.7;
+    opacity:.65;
 }
 </style>
 </head>
@@ -100,69 +149,65 @@ footer{
 
 <header>
 <div class="hero">
-<img src="logo.png" class="logo">
-<h1>NexoraMC</h1>
-<p class="subtitle">
-Custom Minecraft Java server (1.21+) focused on progression, upgrades and long-term gameplay.
-</p>
-<div class="buttons">
-<a href="https://discord.gg/drtUuE3s9C" target="_blank">Join Discord</a>
-<a href="mailto:sorelygone@gmail.com">Donate</a>
-</div>
+    <img src="logo.png" alt="NexoraMC Logo" class="logo">
+
+    <h1>NEXORAMC</h1>
+
+    <p class="subtitle">
+        A next-generation Minecraft Java server (1.21+) focused on deep progression,
+        custom content and long-term gameplay.
+        Upgrade your tools, defeat powerful mobs and unlock new planets as you evolve.
+    </p>
+
+    <div class="buttons">
+        <a href="https://discord.gg/drtUuE3s9C" target="_blank">Join Discord</a>
+    </div>
 </div>
 </header>
 
 <section>
-<h2 class="section-title">Core Features</h2>
+<h2 class="section-title">Core Gameplay</h2>
+
 <div class="features">
-<div class="card">
-<h3>⚔ Custom Mobs</h3>
-<p>Unique mobs with custom drops and abilities.</p>
-</div>
-<div class="card">
-<h3>🔧 Tool Upgrades</h3>
-<p>Upgrade tools and weapons to progress further.</p>
-</div>
-<div class="card">
-<h3>🌍 Planets</h3>
-<p>Unlock new planets with harder content and rewards.</p>
-</div>
-<div class="card">
-<h3>🐾 Pets & Enchants</h3>
-<p>Powerful pets and custom enchantments.</p>
-</div>
+    <div class="card">
+        <h3>⚔ Custom Mobs</h3>
+        <p>Unique mobs with abilities, mechanics and special drops that evolve as you progress.</p>
+    </div>
+
+    <div class="card">
+        <h3>🔧 Gear Progression</h3>
+        <p>Upgrade tools and weapons through multiple tiers instead of replacing them.</p>
+    </div>
+
+    <div class="card">
+        <h3>🌌 Planets System</h3>
+        <p>Start on Earth and unlock new planets with harder challenges and better rewards.</p>
+    </div>
+
+    <div class="card">
+        <h3>🐾 Pets & Enchants</h3>
+        <p>Custom pets and enchantments that permanently improve your playstyle.</p>
+    </div>
 </div>
 </section>
 
 <section>
-<h2 class="section-title">Progression System</h2>
+<h2 class="section-title">Progression Vision</h2>
+
 <p class="progression">
-Start on Earth and advance through multiple planets.
-Progress by killing mobs, mining blocks and completing challenges.
-Your goal is to reach the highest tier possible by upgrading your gear and abilities.
+NexoraMC is built around meaningful progression.
+Whether you mine, fight mobs or challenge other players,
+everything contributes to your long-term growth.
+The goal is not to rush — but to become stronger step by step.
 </p>
-</section>
-
-<section>
-<h2 class="section-title">Reviews</h2>
-<p>Share your feedback and help us improve the server.</p>
-<a class="buttons" href="https://forms.google.com" target="_blank">Leave a Review</a>
-</section>
-
-<section>
-<h2 class="section-title">Support the Server</h2>
-<p class="progression">
-Donations are optional. All donated money is reinvested back into the server
-to improve performance, content and future updates.
-</p>
-<a class="buttons" href="mailto:sorelygone@gmail.com">Donate via PayPal</a>
 </section>
 
 <footer>
-© NexoraMC – Java Edition only | Not pay-to-win
+© NexoraMC • Java Edition • 1.21+
 </footer>
 
 </body>
 </html>
+
 
 
