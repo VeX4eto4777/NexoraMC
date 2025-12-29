@@ -1,80 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>NexoraMC</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      color: white;
-      text-align: center;
-    }
-    header {
-      padding: 60px 20px;
-    }
-    h1 {
-      font-size: 48px;
-      margin-bottom: 10px;
-    }
-    p {
-      max-width: 800px;
-      margin: 0 auto 20px;
-      font-size: 18px;
-    }
-    .buttons {
-      margin-top: 30px;
-    }
-    a.button {
-      display: inline-block;
-      margin: 10px;
-      padding: 15px 30px;
-      background: #ff9800;
-      color: black;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 6px;
-      transition: 0.2s;
-    }
-    a.button:hover {
-      background: #ffc107;
-    }
-    footer {
-      margin-top: 80px;
-      padding: 20px;
-      font-size: 14px;
-      opacity: 0.8;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexoraMC</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: radial-gradient(circle at top, #2f4f5f, #0f1f26);
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3.2rem;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            max-width: 800px;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            opacity: 0.9;
+            margin-bottom: 25px;
+        }
+
+        .info {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 35px;
+            flex-wrap: wrap;
+            justify-content: center;
+            font-size: 0.95rem;
+            opacity: 0.85;
+        }
+
+        .info span {
+            background: rgba(255,255,255,0.08);
+            padding: 8px 14px;
+            border-radius: 8px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 50px;
+        }
+
+        .btn {
+            background: #f39c12;
+            color: #000;
+            text-decoration: none;
+            padding: 14px 26px;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+            box-shadow: 0 6px 0 #c97f0a;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 0 #c97f0a;
+        }
+
+        .btn.secondary {
+            background: #1abc9c;
+            box-shadow: 0 6px 0 #148f77;
+        }
+
+        .btn.secondary:hover {
+            box-shadow: 0 8px 0 #148f77;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 25px;
+            max-width: 800px;
+            font-size: 0.85rem;
+            opacity: 0.75;
+            padding: 0 20px;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.4rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<header>
-  <h1>NexoraMC</h1>
-  <p>
-    NexoraMC is a custom Minecraft Java server (1.21+) focused on progression,
-    upgrades, custom mobs, planets, tools, pets, enchants and long-term gameplay.
-    Your goal is to advance as far as possible by upgrading your gear and unlocking new content.
-  </p>
+    <h1>NexoraMC</h1>
 
-  <div class="buttons">
-    <a class="button" href="https://discord.gg/drtUuE3s9C" target="_blank">Join Discord</a>
+    <div class="subtitle">
+        NexoraMC is a custom Minecraft Java server (1.21+) focused on long-term progression.  
+        Upgrade tools, weapons, pets and enchantments, defeat custom mobs, mine resources, fight players  
+        and unlock new planets as you advance deeper into the universe.
+    </div>
 
-    <a class="button" href="https://www.paypal.com/donate?business=sorelygone@gmail.com&currency_code=EUR" target="_blank">
-      Donate via PayPal
-    </a>
-  </div>
-</header>
+    <div class="info">
+        <span>Java Edition</span>
+        <span>Version 1.21+</span>
+        <span>Status: Development / Coming Soon</span>
+    </div>
 
-<footer>
-  <p>
-    Donations are completely optional.<br>
-    All donated money will be reinvested back into the server to improve gameplay,
-    performance and future content.
-  </p>
-</footer>
+    <div class="buttons">
+        <a class="btn secondary" href="https://discord.gg/drtUuE3s9C" target="_blank">Join Discord</a>
+        <a class="btn" href="https://www.paypal.com" target="_blank">Donate via PayPal</a>
+        <a class="btn secondary" href="#" onclick="alert('IP will be available soon!')">Play Now</a>
+    </div>
+
+    <footer>
+        Donations are completely optional.  
+        All donated money will be reinvested back into the server to improve gameplay, performance  
+        and future content. Donating does not provide unfair advantages.
+    </footer>
 
 </body>
 </html>
+
