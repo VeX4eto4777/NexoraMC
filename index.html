@@ -19,75 +19,15 @@
 body{
   font-family:'Orbitron',sans-serif;
   background:radial-gradient(circle at top,#1a0033,#05000d);
-  color:#fff;
+  color:white;
   overflow-x:hidden;
 }
 
 /* PARTICLES */
 #particles{
   position:fixed;
-  top:0;left:0;
-  width:100%;height:100%;
+  inset:0;
   z-index:-1;
-}
-
-/* HEADER */
-header{
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-}
-
-.logo{
-  width:300px;
-  filter:drop-shadow(0 0 35px var(--p1));
-  transition:.4s;
-}
-.logo:hover{
-  transform:scale(1.08);
-  filter:drop-shadow(0 0 60px var(--p2));
-}
-
-h1{
-  margin-top:20px;
-  font-size:3rem;
-  background:linear-gradient(90deg,var(--p1),var(--p2));
-  -webkit-background-clip:text;
-  color:transparent;
-}
-
-p{
-  max-width:750px;
-  margin:20px auto;
-  line-height:1.6;
-  opacity:.9;
-}
-
-/* BUTTONS */
-.buttons{
-  display:flex;
-  gap:18px;
-  flex-wrap:wrap;
-  justify-content:center;
-  margin-top:25px;
-}
-
-.btn{
-  padding:14px 30px;
-  border-radius:40px;
-  background:linear-gradient(135deg,var(--p1),var(--p2));
-  color:#fff;
-  text-decoration:none;
-  font-weight:bold;
-  box-shadow:0 0 25px rgba(168,85,247,.6);
-  transition:.3s;
-}
-.btn:hover{
-  transform:translateY(-3px);
-  box-shadow:0 0 45px rgba(168,85,247,1);
 }
 
 /* LANGUAGE */
@@ -104,6 +44,61 @@ p{
   padding:6px 12px;
   margin-left:6px;
   cursor:pointer;
+}
+
+/* HEADER */
+header{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+.logo{
+  width:320px;
+  filter:drop-shadow(0 0 45px var(--p1));
+  transition:.4s;
+}
+
+h1{
+  font-size:3rem;
+  margin-top:20px;
+  background:linear-gradient(90deg,var(--p1),var(--p2));
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+p{
+  max-width:760px;
+  margin:20px auto;
+  line-height:1.6;
+  opacity:.9;
+}
+
+/* BUTTONS */
+.buttons{
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin-top:25px;
+}
+
+.btn{
+  padding:14px 32px;
+  border-radius:40px;
+  background:linear-gradient(135deg,var(--p1),var(--p2));
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+  box-shadow:0 0 25px rgba(168,85,247,.6);
+  transition:.3s;
+}
+.btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 0 45px rgba(168,85,247,1);
 }
 
 /* SECTIONS */
@@ -133,12 +128,6 @@ section{
   box-shadow:0 0 30px rgba(168,85,247,.25);
 }
 
-/* STORE */
-.store{
-  max-width:700px;
-  margin:auto;
-}
-
 /* DISCORD */
 .discord{
   display:flex;
@@ -152,10 +141,9 @@ footer{
   background:#05000d;
   text-align:center;
   opacity:.8;
-  font-size:.9rem;
 }
 
-/* SCROLL REVEAL */
+/* SCROLL */
 .reveal{
   opacity:0;
   transform:translateY(40px);
@@ -178,12 +166,9 @@ footer{
 </div>
 
 <header class="reveal">
-  <img src="logo.png" class="logo">
+  <img src="logo.png" class="logo" alt="NexoraMC">
   <h1>NexoraMC</h1>
-
-  <p id="desc">
-    A fantasy Minecraft Java server focused on progression, upgrades and exploration.
-  </p>
+  <p id="desc"></p>
 
   <div class="buttons">
     <a class="btn" href="https://discord.gg/drtUuE3s9C" target="_blank">Discord</a>
@@ -192,31 +177,28 @@ footer{
 </header>
 
 <section class="reveal">
-  <h2 class="title" id="core">Core Features</h2>
+  <h2 class="title" id="core"></h2>
   <div class="features">
-    <div class="card">⚔ Custom progression & upgrades</div>
-    <div class="card">🌍 Planet-based worlds</div>
-    <div class="card">🐉 Custom mobs & drops</div>
-    <div class="card">⚙ Java 1.21+</div>
+    <div class="card" id="f1"></div>
+    <div class="card" id="f2"></div>
+    <div class="card" id="f3"></div>
+    <div class="card" id="f4"></div>
   </div>
 </section>
 
 <section class="reveal">
-  <h2 class="title">Store</h2>
-  <div class="store">
-    <p>Support the server by purchasing ranks or cosmetics. Donations are optional.</p>
-    <a class="btn" href="https://www.paypal.com/donate/?business=sorelygone@gmail.com&currency_code=EUR" target="_blank">
-      Open Store
-    </a>
-  </div>
+  <h2 class="title" id="storeTitle"></h2>
+  <p id="storeDesc"></p>
 </section>
 
 <section class="reveal">
-  <h2 class="title">Discord</h2>
+  <h2 class="title" id="discordTitle"></h2>
+  <p id="discordDesc"></p>
   <div class="discord">
     <iframe
-      src="https://discord.com/widget?id=YOUR_SERVER_ID&theme=dark"
-      width="350" height="500"
+      src="https://discord.com/widget?id=1329820723048611871&theme=dark"
+      width="350"
+      height="500"
       allowtransparency="true"
       sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
     </iframe>
@@ -224,41 +206,66 @@ footer{
 </section>
 
 <footer>
-  © 2025 NexoraMC — All donations are reinvested into the server.
+  © 2025 NexoraMC — Donations are optional and reinvested into the server.
 </footer>
 
 <script>
 /* LANGUAGE */
-const text = {
+const text={
   en:{
     desc:"A fantasy Minecraft Java server focused on progression, upgrades and exploration.",
-    core:"Core Features"
+    core:"Core Features",
+    f1:"⚔ Custom progression and upgrades",
+    f2:"🌍 Planet-based worlds",
+    f3:"🐉 Custom mobs and unique drops",
+    f4:"⚙ Java 1.21+ supported",
+    storeTitle:"Store",
+    storeDesc:"Support the server through optional donations.",
+    discordTitle:"Discord Community",
+    discordDesc:"Join our Discord to chat and get updates."
   },
   bg:{
     desc:"Fantasy Minecraft Java сървър с прогресия, upgrade-и и custom съдържание.",
-    core:"Основни характеристики"
+    core:"Основни характеристики",
+    f1:"⚔ Custom прогресия и upgrade-и",
+    f2:"🌍 Планети с различна трудност",
+    f3:"🐉 Custom мобове и уникални предмети",
+    f4:"⚙ Поддръжка на Java 1.21+",
+    storeTitle:"Магазин",
+    storeDesc:"Можеш да подкрепиш сървъра чрез доброволни дарения.",
+    discordTitle:"Discord общност",
+    discordDesc:"Влез в Discord, за да общуваш и следиш новините."
   }
 };
-function setLang(l){
-  document.getElementById("desc").innerText=text[l].desc;
-  document.getElementById("core").innerText=text[l].core;
-}
 
-/* SCROLL REVEAL */
+function setLang(l){
+  Object.keys(text[l]).forEach(id=>{
+    document.getElementById(id).innerText=text[l][id];
+  });
+}
+setLang("en");
+
+/* SCROLL */
 const reveals=document.querySelectorAll(".reveal");
 window.addEventListener("scroll",()=>{
   reveals.forEach(r=>{
-    const top=r.getBoundingClientRect().top;
-    if(top<window.innerHeight-100) r.classList.add("active");
+    if(r.getBoundingClientRect().top < window.innerHeight-100){
+      r.classList.add("active");
+    }
   });
 });
 
 /* PARTICLES */
 const c=document.getElementById("particles");
 const ctx=c.getContext("2d");
-c.width=innerWidth; c.height=innerHeight;
+function resize(){
+  c.width=innerWidth;
+  c.height=innerHeight;
+}
+resize(); window.onresize=resize;
+
 let p=[];
-for(let i=0;i<80;i++){
+for(let i=0;i<90;i++){
   p.push({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*2+1});
 }
 function draw(){
@@ -278,6 +285,7 @@ draw();
 
 </body>
 </html>
+
 
 
 
