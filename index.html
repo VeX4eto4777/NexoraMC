@@ -5,159 +5,119 @@
 <title>NexoraMC</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
-:root{
-  --purple1:#7a3cff;
-  --purple2:#b14cff;
-  --bg1:#0b0416;
-  --bg2:#140826;
-  --card:#1b0f2f;
+:root {
+  --purple1:#6a00ff;
+  --purple2:#a855f7;
+  --dark:#0b0616;
 }
 
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:Inter, sans-serif;
-  background:
-    radial-gradient(circle at top, #2a0f4d, transparent 60%),
-    linear-gradient(180deg,var(--bg1),var(--bg2));
-  color:#fff;
+* { box-sizing:border-box; margin:0; padding:0; }
+
+body {
+  font-family: 'Orbitron', sans-serif;
+  background: radial-gradient(circle at top, #1a0033, #05000d);
+  color: white;
   overflow-x:hidden;
 }
 
-.hero{
+header {
   min-height:100vh;
   display:flex;
   flex-direction:column;
-  align-items:center;
   justify-content:center;
+  align-items:center;
   text-align:center;
-  position:relative;
+  background: linear-gradient(180deg, rgba(106,0,255,.25), transparent);
 }
 
-.hero::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    radial-gradient(circle, rgba(177,76,255,.15) 1px, transparent 1px);
-  background-size:40px 40px;
-  opacity:.4;
-}
-
-.logo{
+.logo {
   width:260px;
-  max-width:80%;
-  margin-bottom:20px;
-  filter:drop-shadow(0 0 25px rgba(177,76,255,.6));
-  transition:transform .4s ease, filter .4s ease;
+  transition: transform .4s, filter .4s;
+  filter: drop-shadow(0 0 25px var(--purple1));
 }
-.logo:hover{
-  transform:scale(1.05);
-  filter:drop-shadow(0 0 40px rgba(177,76,255,1));
+.logo:hover {
+  transform: scale(1.08);
+  filter: drop-shadow(0 0 45px var(--purple2));
 }
 
-h1{
-  font-family:Orbitron;
-  font-size:3.2rem;
-  margin:10px 0;
-  background:linear-gradient(90deg,var(--purple1),var(--purple2));
+h1 {
+  margin-top:20px;
+  font-size:3rem;
+  background: linear-gradient(90deg,var(--purple1),var(--purple2));
   -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+  color:transparent;
 }
 
-.subtitle{
+p {
   max-width:700px;
+  margin:20px auto;
   opacity:.9;
   line-height:1.6;
-  margin-bottom:30px;
 }
 
-.buttons{
+.buttons {
+  margin-top:25px;
   display:flex;
   gap:20px;
   flex-wrap:wrap;
   justify-content:center;
 }
 
-.btn{
-  padding:14px 30px;
-  font-weight:600;
-  border-radius:14px;
-  border:none;
-  cursor:pointer;
+.btn {
+  padding:14px 28px;
+  border-radius:40px;
   text-decoration:none;
-  color:#fff;
-  background:linear-gradient(135deg,var(--purple1),var(--purple2));
-  box-shadow:0 10px 30px rgba(122,60,255,.45);
-  transition:transform .25s ease, box-shadow .25s ease;
+  font-weight:bold;
+  color:white;
+  background: linear-gradient(135deg,var(--purple1),var(--purple2));
+  box-shadow:0 0 20px rgba(168,85,247,.6);
+  transition:.3s;
 }
-.btn:hover{
+.btn:hover {
   transform:translateY(-3px);
-  box-shadow:0 15px 40px rgba(177,76,255,.8);
+  box-shadow:0 0 35px rgba(168,85,247,1);
 }
 
-.section{
-  padding:90px 20px;
+section {
+  padding:80px 20px;
+  text-align:center;
+}
+
+.section-title {
+  font-size:2.3rem;
+  margin-bottom:20px;
+  color:var(--purple2);
+}
+
+.features {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+  max-width:1000px;
+  margin:auto;
+}
+
+.card {
+  background:rgba(255,255,255,.04);
+  border-radius:18px;
+  padding:25px;
+  box-shadow:0 0 25px rgba(168,85,247,.25);
+}
+
+.discord {
   display:flex;
   justify-content:center;
+  margin-top:30px;
 }
 
-.card{
-  max-width:1100px;
-  width:100%;
-  background:linear-gradient(180deg,#1b0f2f,#140826);
-  border-radius:26px;
-  padding:60px;
-  box-shadow:0 30px 80px rgba(0,0,0,.6);
-}
-
-.section h2{
-  font-family:Orbitron;
+footer {
+  padding:40px;
+  background:#05000d;
+  opacity:.8;
   text-align:center;
-  font-size:2.4rem;
-  margin-bottom:40px;
-  color:#caa8ff;
-}
-
-.features{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:30px;
-}
-
-.feature{
-  background:rgba(255,255,255,.04);
-  padding:30px;
-  border-radius:20px;
-  border:1px solid rgba(177,76,255,.15);
-  transition:transform .3s ease, box-shadow .3s ease;
-}
-.feature:hover{
-  transform:translateY(-6px);
-  box-shadow:0 15px 40px rgba(177,76,255,.4);
-}
-
-.feature h3{
-  color:#d7b8ff;
-  margin-bottom:10px;
-}
-
-.discord{
-  text-align:center;
-}
-
-.discord iframe{
-  border-radius:18px;
-  box-shadow:0 15px 40px rgba(0,0,0,.6);
-}
-
-.footer{
-  text-align:center;
-  padding:40px 20px;
-  opacity:.7;
   font-size:.9rem;
 }
 </style>
@@ -165,75 +125,69 @@ h1{
 
 <body>
 
-<section class="hero">
-  <img src="logo.png" alt="NexoraMC Logo" class="logo">
-
+<header>
+  <img src="logo.png" class="logo" alt="NexoraMC Logo">
   <h1>NexoraMC</h1>
-
-  <p class="subtitle">
-    NexoraMC is a fantasy-styled Minecraft Java server (1.21+) focused on deep
-    progression, planets, custom mobs, upgrades, pets and long-term gameplay.
-    Advance through worlds, evolve your gear and push your limits.
+  <p>
+    A fantasy Minecraft Java server focused on progression, upgrades and exploration.
+    Fight custom mobs, break blocks, unlock planets and evolve your gear step by step.
   </p>
 
   <div class="buttons">
     <a class="btn" href="https://discord.gg/drtUuE3s9C" target="_blank">Join Discord</a>
-    <a class="btn" href="https://www.paypal.me/sorelygone" target="_blank">Donate via PayPal</a>
-  </div>
-</section>
 
-<section class="section">
-  <div class="card">
-    <h2>Core Features</h2>
-    <div class="features">
-      <div class="feature">
-        <h3>🌍 Custom Planets</h3>
-        <p>Progress through unique planets starting from Earth, each with its own mobs, mechanics and resources.</p>
-      </div>
-      <div class="feature">
-        <h3>⚔️ RPG Progression</h3>
-        <p>Upgrade tools, weapons, armor and pets by killing mobs, mining blocks or fighting players.</p>
-      </div>
-      <div class="feature">
-        <h3>✨ Custom Enchants</h3>
-        <p>Powerful enchantments designed for long-term progression and unique playstyles.</p>
-      </div>
-      <div class="feature">
-        <h3>🐉 Custom Mobs</h3>
-        <p>Challenging fantasy mobs with special abilities and valuable drops.</p>
-      </div>
-      <div class="feature">
-        <h3>🐾 Pets & Upgrades</h3>
-        <p>Collect and upgrade pets that boost your progression and combat power.</p>
-      </div>
-      <div class="feature">
-        <h3>💎 Fair Donations</h3>
-        <p>Donations are optional. All donated money is reinvested into the server.</p>
-      </div>
+    <!-- PayPal donate via email (РАБОТИ) -->
+    <a class="btn" href="https://www.paypal.com/donate/?business=sorelygone@gmail.com&currency_code=EUR" target="_blank">
+      Donate via PayPal
+    </a>
+  </div>
+</header>
+
+<section>
+  <h2 class="section-title">Core Features</h2>
+  <div class="features">
+    <div class="card">
+      <h3>⚔ Custom Progression</h3>
+      <p>Upgrade tools, weapons, pets and enchants by playing – not pay to win.</p>
+    </div>
+    <div class="card">
+      <h3>🌍 Planets System</h3>
+      <p>Start on Earth and unlock new fantasy worlds with stronger mobs and rewards.</p>
+    </div>
+    <div class="card">
+      <h3>🐉 Custom Mobs</h3>
+      <p>Unique enemies with custom drops, abilities and progression-based difficulty.</p>
+    </div>
+    <div class="card">
+      <h3>⚙ Java 1.21+</h3>
+      <p>Supports Minecraft Java Edition from 1.21 to the latest version.</p>
     </div>
   </div>
 </section>
 
-<section class="section">
-  <div class="card discord">
-    <h2>Discord</h2>
-    <iframe
+<section>
+  <h2 class="section-title">Discord Community</h2>
+  <p>Join the community, get updates and talk with players.</p>
+
+  <div class="discord">
+    <!-- ТОВА РАБОТИ САМО АКО WIDGET Е ENABLED -->
+    <iframe 
       src="https://discord.com/widget?id=YOUR_SERVER_ID&theme=dark"
       width="350"
       height="500"
       allowtransparency="true"
-      frameborder="0"
       sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
     </iframe>
   </div>
 </section>
 
-<div class="footer">
-  © NexoraMC • Minecraft Java Server • All rights reserved
-</div>
+<footer>
+  © 2025 NexoraMC — Donations are optional and reinvested back into the server.
+</footer>
 
 </body>
 </html>
+
 
 
 
