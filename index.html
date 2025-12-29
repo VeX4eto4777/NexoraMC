@@ -5,260 +5,236 @@
 <title>NexoraMC</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
 :root{
- --p1:#8a4dff;
- --p2:#c39bff;
- --bg1:#090414;
- --bg2:#1a0d3b;
+  --purple1:#7a3cff;
+  --purple2:#b14cff;
+  --bg1:#0b0416;
+  --bg2:#140826;
+  --card:#1b0f2f;
 }
 
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Orbitron',sans-serif}
-
+*{box-sizing:border-box}
 body{
- background:radial-gradient(circle at top,var(--bg2),var(--bg1));
- color:#fff;
- overflow-x:hidden;
+  margin:0;
+  font-family:Inter, sans-serif;
+  background:
+    radial-gradient(circle at top, #2a0f4d, transparent 60%),
+    linear-gradient(180deg,var(--bg1),var(--bg2));
+  color:#fff;
+  overflow-x:hidden;
 }
 
-#particles{position:fixed;inset:0;z-index:-2}
-
-.planet{
- position:absolute;border-radius:50%;opacity:.6;
- background:radial-gradient(circle,var(--p2),#3b1478);
- animation:float 16s ease-in-out infinite;
-}
-.p1{width:180px;height:180px;top:18%;left:6%}
-.p2{width:120px;height:120px;bottom:18%;right:8%;animation-duration:22s}
-
-@keyframes float{50%{transform:translateY(-25px)}}
-
-.lang{position:fixed;top:20px;right:20px;z-index:20}
-.lang button{
- background:none;border:1px solid var(--p1);color:#fff;
- padding:6px 12px;border-radius:6px;cursor:pointer;margin-left:6px
-}
-.lang .active{background:var(--p1)}
-
-header{
- min-height:100vh;
- display:flex;
- flex-direction:column;
- align-items:center;
- justify-content:center;
- text-align:center;
- padding:40px;
+.hero{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
 }
 
-.logo-wrap{perspective:1000px}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle, rgba(177,76,255,.15) 1px, transparent 1px);
+  background-size:40px 40px;
+  opacity:.4;
+}
+
 .logo{
- width:360px;
- transition:.15s;
- filter:drop-shadow(0 0 40px rgba(190,130,255,.9));
+  width:260px;
+  max-width:80%;
+  margin-bottom:20px;
+  filter:drop-shadow(0 0 25px rgba(177,76,255,.6));
+  transition:transform .4s ease, filter .4s ease;
 }
-.logo:hover{filter:drop-shadow(0 0 80px rgba(220,170,255,1))}
+.logo:hover{
+  transform:scale(1.05);
+  filter:drop-shadow(0 0 40px rgba(177,76,255,1));
+}
 
 h1{
- font-size:3.6rem;
- margin-top:20px;
- background:linear-gradient(90deg,var(--p1),var(--p2));
- -webkit-background-clip:text;color:transparent;
+  font-family:Orbitron;
+  font-size:3.2rem;
+  margin:10px 0;
+  background:linear-gradient(90deg,var(--purple1),var(--purple2));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
 
 .subtitle{
- max-width:780px;
- margin-top:15px;
- color:#ddd3ff;
+  max-width:700px;
+  opacity:.9;
+  line-height:1.6;
+  margin-bottom:30px;
 }
 
-section{padding:90px 20px;max-width:1200px;margin:auto}
-section h2{
- text-align:center;
- font-size:2.6rem;
- margin-bottom:40px;
- background:linear-gradient(90deg,var(--p1),var(--p2));
- -webkit-background-clip:text;color:transparent;
+.buttons{
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.btn{
+  padding:14px 30px;
+  font-weight:600;
+  border-radius:14px;
+  border:none;
+  cursor:pointer;
+  text-decoration:none;
+  color:#fff;
+  background:linear-gradient(135deg,var(--purple1),var(--purple2));
+  box-shadow:0 10px 30px rgba(122,60,255,.45);
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 15px 40px rgba(177,76,255,.8);
+}
+
+.section{
+  padding:90px 20px;
+  display:flex;
+  justify-content:center;
+}
+
+.card{
+  max-width:1100px;
+  width:100%;
+  background:linear-gradient(180deg,#1b0f2f,#140826);
+  border-radius:26px;
+  padding:60px;
+  box-shadow:0 30px 80px rgba(0,0,0,.6);
+}
+
+.section h2{
+  font-family:Orbitron;
+  text-align:center;
+  font-size:2.4rem;
+  margin-bottom:40px;
+  color:#caa8ff;
 }
 
 .features{
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
- gap:25px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
 }
-.card{
- background:rgba(255,255,255,.06);
- border-radius:18px;
- padding:28px;
- backdrop-filter:blur(12px);
- transition:.35s;
-}
-.card:hover{
- transform:translateY(-10px);
- box-shadow:0 0 45px rgba(170,110,255,.6);
-}
-.card span{font-size:2rem}
-.card p{margin-top:10px;color:#e3dbff;font-size:.95rem}
 
-.donate{text-align:center}
-.donate p{max-width:760px;margin:20px auto;color:#e0d8ff}
-.donate a{
- display:inline-block;margin-top:25px;
- padding:16px 38px;border-radius:50px;
- background:linear-gradient(90deg,var(--p1),var(--p2));
- color:#fff;text-decoration:none;
- box-shadow:0 0 45px rgba(170,120,255,.7);
- transition:.3s;
+.feature{
+  background:rgba(255,255,255,.04);
+  padding:30px;
+  border-radius:20px;
+  border:1px solid rgba(177,76,255,.15);
+  transition:transform .3s ease, box-shadow .3s ease;
 }
-.donate a:hover{transform:scale(1.06)}
+.feature:hover{
+  transform:translateY(-6px);
+  box-shadow:0 15px 40px rgba(177,76,255,.4);
+}
 
-.discord{text-align:center}
+.feature h3{
+  color:#d7b8ff;
+  margin-bottom:10px;
+}
+
+.discord{
+  text-align:center;
+}
+
 .discord iframe{
- border-radius:16px;
- box-shadow:0 0 40px rgba(160,100,255,.5);
+  border-radius:18px;
+  box-shadow:0 15px 40px rgba(0,0,0,.6);
 }
 
-#audioBtn{
- position:fixed;bottom:20px;right:20px;
- width:55px;height:55px;border-radius:50%;
- border:none;cursor:pointer;
- background:linear-gradient(90deg,var(--p1),var(--p2));
- color:#fff;font-size:1.2rem;
- box-shadow:0 0 30px rgba(160,90,255,.7);
+.footer{
+  text-align:center;
+  padding:40px 20px;
+  opacity:.7;
+  font-size:.9rem;
 }
-
-.reveal{opacity:0;transform:translateY(60px);transition:.9s}
-.reveal.show{opacity:1;transform:none}
-
-footer{text-align:center;padding:40px;color:#b9abff}
 </style>
 </head>
 
 <body>
 
-<canvas id="particles"></canvas>
-<div class="planet p1"></div>
-<div class="planet p2"></div>
+<section class="hero">
+  <img src="logo.png" alt="NexoraMC Logo" class="logo">
 
-<div class="lang">
- <button id="en" class="active">EN</button>
- <button id="bg">BG</button>
+  <h1>NexoraMC</h1>
+
+  <p class="subtitle">
+    NexoraMC is a fantasy-styled Minecraft Java server (1.21+) focused on deep
+    progression, planets, custom mobs, upgrades, pets and long-term gameplay.
+    Advance through worlds, evolve your gear and push your limits.
+  </p>
+
+  <div class="buttons">
+    <a class="btn" href="https://discord.gg/drtUuE3s9C" target="_blank">Join Discord</a>
+    <a class="btn" href="https://www.paypal.me/sorelygone" target="_blank">Donate via PayPal</a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="card">
+    <h2>Core Features</h2>
+    <div class="features">
+      <div class="feature">
+        <h3>🌍 Custom Planets</h3>
+        <p>Progress through unique planets starting from Earth, each with its own mobs, mechanics and resources.</p>
+      </div>
+      <div class="feature">
+        <h3>⚔️ RPG Progression</h3>
+        <p>Upgrade tools, weapons, armor and pets by killing mobs, mining blocks or fighting players.</p>
+      </div>
+      <div class="feature">
+        <h3>✨ Custom Enchants</h3>
+        <p>Powerful enchantments designed for long-term progression and unique playstyles.</p>
+      </div>
+      <div class="feature">
+        <h3>🐉 Custom Mobs</h3>
+        <p>Challenging fantasy mobs with special abilities and valuable drops.</p>
+      </div>
+      <div class="feature">
+        <h3>🐾 Pets & Upgrades</h3>
+        <p>Collect and upgrade pets that boost your progression and combat power.</p>
+      </div>
+      <div class="feature">
+        <h3>💎 Fair Donations</h3>
+        <p>Donations are optional. All donated money is reinvested into the server.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="card discord">
+    <h2>Discord</h2>
+    <iframe
+      src="https://discord.com/widget?id=YOUR_SERVER_ID&theme=dark"
+      width="350"
+      height="500"
+      allowtransparency="true"
+      frameborder="0"
+      sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
+    </iframe>
+  </div>
+</section>
+
+<div class="footer">
+  © NexoraMC • Minecraft Java Server • All rights reserved
 </div>
-
-<header>
- <div class="logo-wrap" id="parallax">
-  <img src="logo.png" class="logo">
- </div>
- <h1>NexoraMC</h1>
- <p class="subtitle reveal"
- data-en="A fantasy Minecraft progression server where effort defines power."
- data-bg="Fantasy Minecraft сървър, където усилията определят силата.">
- A fantasy Minecraft progression server where effort defines power.
- </p>
-</header>
-
-<section class="reveal">
-<h2 data-en="Core Features" data-bg="Основни Функции">Core Features</h2>
-<div class="features">
- <div class="card">
-  <span>🪐</span>
-  <p data-en="Progress through unique planets with custom mobs and upgrades."
-     data-bg="Прогресирай през уникални планети с custom мобове и ъпгрейди.">
-     Progress through unique planets with custom mobs and upgrades.
-  </p>
- </div>
- <div class="card">
-  <span>⚔️</span>
-  <p data-en="Deep weapon, tool and armor progression systems."
-     data-bg="Дълбоки системи за развитие на оръжия, инструменти и броня.">
-     Deep weapon, tool and armor progression systems.
-  </p>
- </div>
- <div class="card">
-  <span>🐉</span>
-  <p data-en="Pets, enchantments and long-term progression without resets."
-     data-bg="Pets, enchant-и и дългосрочна прогресия без ресети.">
-     Pets, enchantments and long-term progression without resets.
-  </p>
- </div>
- <div class="card">
-  <span>⛏️</span>
-  <p data-en="Mining, PvE and PvP combined into one experience."
-     data-bg="Mining, PvE и PvP комбинирани в едно изживяване.">
-     Mining, PvE and PvP combined into one experience.
-  </p>
- </div>
-</div>
-</section>
-
-<section class="discord reveal">
-<h2>Discord</h2>
-<iframe src="https://discord.com/widget?id=YOUR_SERVER_ID&theme=dark"
- width="350" height="500" allowtransparency="true"
- sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-</section>
-
-<section class="donate reveal">
-<h2 data-en="Support the Server" data-bg="Подкрепи Сървъра">Support the Server</h2>
-<p data-en="PayPal donations are active. All funds are reinvested back into NexoraMC."
-   data-bg="PayPal работи. Всички средства се влагат обратно в NexoraMC.">
-   PayPal donations are active. All funds are reinvested back into NexoraMC.
-</p>
-<a href="https://paypal.me/yourlink" target="_blank">Donate via PayPal</a>
-</section>
-
-<footer>© NexoraMC • Java 1.21+</footer>
-
-<button id="audioBtn">🎵</button>
-<audio id="bgAudio" src="ambient.mp3" loop></audio>
-
-<script>
-/* LANGUAGE */
-function setLang(l){
- document.querySelectorAll("[data-en]").forEach(e=>{
-   e.textContent = e.dataset[l];
- });
- en.classList.toggle("active",l==="en");
- bg.classList.toggle("active",l==="bg");
- localStorage.setItem("lang",l);
-}
-
-const savedLang = localStorage.getItem("lang") || "en";
-setLang(savedLang);
-
-en.onclick=()=>setLang("en");
-bg.onclick=()=>setLang("bg");
-
-/* PARALLAX */
-addEventListener("mousemove",e=>{
- const x=(e.clientX-innerWidth/2)/35;
- const y=(innerHeight/2-e.clientY)/35;
- parallax.style.transform=`rotateY(${x}deg) rotateX(${y}deg)`;
-});
-
-/* PARTICLES */
-const c=document.getElementById("particles"),x=c.getContext("2d");
-function r(){c.width=innerWidth;c.height=innerHeight}r();onresize=r;
-let p=[...Array(80)].map(()=>({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*2+1,s:Math.random()}));
-(function d(){
- x.clearRect(0,0,c.width,c.height);
- p.forEach(a=>{a.y+=a.s;if(a.y>c.height)a.y=0;
- x.beginPath();x.arc(a.x,a.y,a.r,0,7);x.fillStyle="rgba(170,110,255,.6)";x.fill()});
- requestAnimationFrame(d);
-})();
-
-/* REVEAL */
-const io=new IntersectionObserver(e=>e.forEach(v=>v.isIntersecting&&v.target.classList.add("show")));
-document.querySelectorAll(".reveal").forEach(e=>io.observe(e));
-
-/* AUDIO */
-const a=document.getElementById("bgAudio"),b=document.getElementById("audioBtn");
-b.onclick=()=>a.paused?(a.play(),b.textContent="🔊"):(a.pause(),b.textContent="🎵");
-</script>
 
 </body>
 </html>
+
 
 
 
