@@ -5,26 +5,45 @@
 <title>NexoraMC</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- Gaming Font -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
+
 <style>
 :root{
     --bg1:#05080d;
     --bg2:#0b1620;
+    --bg3:#120b2b;
     --accent:#7c5cff;
     --accent2:#00d4ff;
+    --accent3:#ffb000;
 }
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family: "Segoe UI", Arial, sans-serif;
+    font-family:'Orbitron',sans-serif;
 }
 
 body{
     background:
-        radial-gradient(circle at top, rgba(124,92,255,.15), transparent 40%),
-        linear-gradient(180deg,var(--bg1),var(--bg2));
+        radial-gradient(circle at 20% 10%, rgba(124,92,255,.25), transparent 35%),
+        radial-gradient(circle at 80% 20%, rgba(0,212,255,.2), transparent 40%),
+        radial-gradient(circle at 50% 90%, rgba(255,176,0,.15), transparent 40%),
+        linear-gradient(180deg,var(--bg1),var(--bg2),var(--bg3));
     color:#fff;
+    overflow-x:hidden;
+}
+
+/* SCROLL ANIMATION */
+.reveal{
+    opacity:0;
+    transform:translateY(60px);
+    transition:1s ease;
+}
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
 }
 
 /* HERO */
@@ -42,53 +61,57 @@ header{
 }
 
 .logo{
-    width:320px; /* <-- ПО-ГОЛЯМО ЛОГО */
-    margin-bottom:30px;
+    width:360px;
+    margin-bottom:35px;
     filter:
-        drop-shadow(0 0 25px rgba(124,92,255,.9))
-        drop-shadow(0 0 60px rgba(0,212,255,.4));
+        drop-shadow(0 0 30px rgba(124,92,255,1))
+        drop-shadow(0 0 80px rgba(0,212,255,.6));
 }
 
 h1{
-    font-size:64px;
-    letter-spacing:3px;
-    margin-bottom:15px;
+    font-size:72px;
+    letter-spacing:4px;
+    margin-bottom:20px;
 }
 
 .subtitle{
     font-size:20px;
     opacity:.9;
-    max-width:800px;
-    margin:0 auto 40px;
-    line-height:1.7;
+    max-width:850px;
+    margin:0 auto 45px;
+    line-height:1.8;
 }
 
 .buttons a{
     display:inline-block;
-    margin:10px;
-    padding:16px 36px;
-    border-radius:14px;
+    margin:12px;
+    padding:18px 42px;
+    border-radius:16px;
     background:linear-gradient(135deg,var(--accent),var(--accent2));
     color:#000;
-    font-weight:700;
+    font-weight:800;
     text-decoration:none;
     transition:.25s;
 }
 
+.buttons a.donate{
+    background:linear-gradient(135deg,var(--accent3),#ff6a00);
+}
+
 .buttons a:hover{
-    transform:translateY(-4px) scale(1.03);
-    box-shadow:0 15px 40px rgba(124,92,255,.45);
+    transform:translateY(-5px) scale(1.05);
+    box-shadow:0 20px 50px rgba(124,92,255,.45);
 }
 
 /* SECTIONS */
 section{
-    padding:90px 20px;
+    padding:100px 20px;
 }
 
 .section-title{
     text-align:center;
-    font-size:42px;
-    margin-bottom:55px;
+    font-size:44px;
+    margin-bottom:60px;
 }
 
 /* FEATURES */
@@ -96,48 +119,67 @@ section{
     max-width:1200px;
     margin:auto;
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:30px;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:32px;
 }
 
 .card{
     background:
-        linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.01));
-    border:1px solid rgba(255,255,255,.08);
-    border-radius:22px;
-    padding:30px;
-    backdrop-filter: blur(6px);
-    transition:.3s;
+        linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.01));
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:26px;
+    padding:32px;
+    backdrop-filter: blur(8px);
+    transition:.35s;
 }
 
 .card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 25px 60px rgba(0,0,0,.6);
+    transform:translateY(-10px) scale(1.02);
+    box-shadow:0 30px 70px rgba(0,0,0,.7);
 }
 
 .card h3{
-    font-size:22px;
-    margin-bottom:12px;
+    font-size:24px;
+    margin-bottom:14px;
 }
 
 .card p{
     opacity:.85;
-    line-height:1.6;
+    line-height:1.7;
 }
 
 /* PROGRESSION */
 .progression{
-    max-width:900px;
+    max-width:950px;
     margin:auto;
     font-size:19px;
-    line-height:1.8;
+    line-height:1.9;
     opacity:.9;
     text-align:center;
 }
 
+/* DONATE */
+.donate-box{
+    max-width:800px;
+    margin:auto;
+    text-align:center;
+    background:
+        linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.02));
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:28px;
+    padding:45px;
+}
+
+.donate-box p{
+    font-size:18px;
+    line-height:1.8;
+    opacity:.9;
+    margin-bottom:30px;
+}
+
 /* FOOTER */
 footer{
-    padding:50px 20px;
+    padding:60px 20px;
     text-align:center;
     font-size:14px;
     opacity:.65;
@@ -149,65 +191,93 @@ footer{
 
 <header>
 <div class="hero">
-    <img src="logo.png" alt="NexoraMC Logo" class="logo">
+    <img src="logo.png" class="logo">
 
     <h1>NEXORAMC</h1>
 
     <p class="subtitle">
         A next-generation Minecraft Java server (1.21+) focused on deep progression,
-        custom content and long-term gameplay.
-        Upgrade your tools, defeat powerful mobs and unlock new planets as you evolve.
+        custom systems and long-term evolution across multiple planets.
     </p>
 
     <div class="buttons">
         <a href="https://discord.gg/drtUuE3s9C" target="_blank">Join Discord</a>
+        <a href="mailto:sorelygone@gmail.com" class="donate">Donate</a>
     </div>
 </div>
 </header>
 
-<section>
+<section class="reveal">
 <h2 class="section-title">Core Gameplay</h2>
 
 <div class="features">
     <div class="card">
         <h3>⚔ Custom Mobs</h3>
-        <p>Unique mobs with abilities, mechanics and special drops that evolve as you progress.</p>
+        <p>Advanced mobs with abilities, scaling difficulty and unique drops.</p>
     </div>
 
     <div class="card">
-        <h3>🔧 Gear Progression</h3>
-        <p>Upgrade tools and weapons through multiple tiers instead of replacing them.</p>
+        <h3>🔧 Gear Evolution</h3>
+        <p>Upgrade weapons and tools instead of replacing them every stage.</p>
     </div>
 
     <div class="card">
-        <h3>🌌 Planets System</h3>
-        <p>Start on Earth and unlock new planets with harder challenges and better rewards.</p>
+        <h3>🌌 Planets</h3>
+        <p>Progress from Earth to powerful planets with exclusive mechanics.</p>
     </div>
 
     <div class="card">
         <h3>🐾 Pets & Enchants</h3>
-        <p>Custom pets and enchantments that permanently improve your playstyle.</p>
+        <p>Long-term upgrades that permanently shape your playstyle.</p>
     </div>
 </div>
 </section>
 
-<section>
+<section class="reveal">
 <h2 class="section-title">Progression Vision</h2>
 
 <p class="progression">
-NexoraMC is built around meaningful progression.
-Whether you mine, fight mobs or challenge other players,
-everything contributes to your long-term growth.
-The goal is not to rush — but to become stronger step by step.
+Everything you do matters.
+Mining, combat and challenges all contribute to your progression.
+The goal is mastery, not rushing — grow stronger step by step.
 </p>
+</section>
+
+<section class="reveal">
+<h2 class="section-title">Support NexoraMC</h2>
+
+<div class="donate-box">
+    <p>
+        Donations are completely optional.
+        All donated money is reinvested back into the server —
+        improving performance, content and future development.
+    </p>
+
+    <div class="buttons">
+        <a href="mailto:sorelygone@gmail.com" class="donate">Donate via PayPal</a>
+    </div>
+</div>
 </section>
 
 <footer>
 © NexoraMC • Java Edition • 1.21+
 </footer>
 
+<script>
+const reveals = document.querySelectorAll('.reveal');
+window.addEventListener('scroll', () => {
+    reveals.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if(top < window.innerHeight - 100){
+            el.classList.add('active');
+        }
+    });
+});
+</script>
+
 </body>
 </html>
+
 
 
 
