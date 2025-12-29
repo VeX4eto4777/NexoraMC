@@ -7,8 +7,8 @@
 
 <style>
 :root{
-  --purple1:#a56bff;
-  --purple2:#6f3cff;
+  --p1:#a56bff;
+  --p2:#6f3cff;
   --bg1:#0a0716;
   --bg2:#140b2d;
 }
@@ -21,23 +21,21 @@ body{
   overflow-x:hidden;
 }
 
-/* PARTICLES */
-canvas{
-  position:fixed;
-  inset:0;
-  z-index:-1;
-}
+/* CANVAS */
+canvas{position:fixed;inset:0;z-index:-1}
 
-/* LANGUAGE */
-.lang{
+/* UI */
+.lang,.sound{
   position:fixed;
   top:20px;
-  right:20px;
   z-index:10;
 }
-.lang button{
-  background:rgba(255,255,255,.05);
-  border:1px solid var(--purple1);
+.lang{right:20px}
+.sound{left:20px}
+
+.lang button,.sound button{
+  background:rgba(255,255,255,.06);
+  border:1px solid var(--p1);
   color:white;
   padding:6px 12px;
   border-radius:10px;
@@ -54,42 +52,36 @@ header{
   perspective:1200px;
 }
 
-.hero{
-  transform-style:preserve-3d;
-}
+.hero{transform-style:preserve-3d}
 
 /* LOGO */
 .logo{
-  width:420px;
+  width:440px;
   margin-bottom:25px;
-  filter:drop-shadow(0 0 35px var(--purple1));
-  transition:transform .4s,filter .4s;
+  filter:drop-shadow(0 0 40px var(--p1));
+  transition:.4s;
 }
 .logo:hover{
   transform:scale(1.1);
-  filter:drop-shadow(0 0 65px var(--purple2));
+  filter:drop-shadow(0 0 70px var(--p2));
 }
 
 /* TITLE */
 h1{
-  font-size:3.4rem;
-  background:linear-gradient(270deg,var(--purple1),#e1c6ff,var(--purple2));
+  font-size:3.5rem;
+  background:linear-gradient(270deg,var(--p1),#e6d6ff,var(--p2));
   background-size:400% 400%;
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
-  animation:gradient 6s ease infinite;
+  animation:grad 6s ease infinite;
 }
-@keyframes gradient{
+@keyframes grad{
   0%{background-position:0%}
   50%{background-position:100%}
   100%{background-position:0%}
 }
 
-.subtitle{
-  margin-top:14px;
-  opacity:.85;
-  font-size:1.1rem;
-}
+.subtitle{margin-top:14px;opacity:.85}
 
 /* BUTTONS */
 .buttons{
@@ -100,18 +92,18 @@ h1{
   flex-wrap:wrap;
 }
 .btn{
-  padding:15px 30px;
+  padding:15px 32px;
   border-radius:40px;
   border:none;
   font-weight:600;
   cursor:pointer;
-  background:linear-gradient(135deg,var(--purple1),var(--purple2));
+  background:linear-gradient(135deg,var(--p1),var(--p2));
   color:black;
   transition:.3s;
 }
 .btn:hover{
   transform:translateY(-4px);
-  box-shadow:0 0 35px var(--purple1);
+  box-shadow:0 0 40px var(--p1);
 }
 
 /* SECTIONS */
@@ -127,14 +119,23 @@ section{
   gap:35px;
 }
 
+/* FANTASY CARDS */
 .card{
   background:rgba(255,255,255,.06);
   border-radius:22px;
-  padding:35px;
+  padding:40px 30px;
   backdrop-filter:blur(12px);
-  border:1px solid rgba(165,107,255,.15);
+  border:1px solid rgba(165,107,255,.2);
   transition:.4s;
 }
+
+.card span{
+  font-size:2.4rem;
+  display:block;
+  margin-bottom:15px;
+  filter:drop-shadow(0 0 10px var(--p1));
+}
+
 .card:hover{
   transform:translateY(-12px);
   box-shadow:0 0 45px rgba(165,107,255,.45);
@@ -147,7 +148,7 @@ footer{
   font-size:.9rem;
 }
 
-/* SCROLL FADE */
+/* SCROLL */
 .fade{
   opacity:0;
   transform:translateY(40px);
@@ -164,10 +165,18 @@ footer{
 
 <canvas id="particles"></canvas>
 
+<div class="sound">
+  <button onclick="toggleSound()">🔊 Sound</button>
+</div>
+
 <div class="lang">
   <button onclick="setLang('en')">EN</button>
   <button onclick="setLang('bg')">BG</button>
 </div>
+
+<audio id="ambience" loop>
+  <source src="ambience.mp3" type="audio/mpeg">
+</audio>
 
 <header>
   <div class="hero" id="parallax">
@@ -189,30 +198,15 @@ footer{
 </header>
 
 <section class="fade">
-  <h2>The World of Nexora</h2>
-  <p style="margin-top:20px;opacity:.85">
-    NexoraMC is a long-term fantasy progression server where every upgrade matters.
-    Defeat custom creatures, unlock planets and evolve your gear.
-  </p>
-</section>
-
-<section class="fade">
   <h2>Core Features</h2>
   <div class="grid">
-    <div class="card">⚔️ Custom Fantasy Mobs</div>
-    <div class="card">🧱 Block & Mob Progression</div>
-    <div class="card">🌍 Planets & Worlds</div>
-    <div class="card">🐾 Pets & Gear Upgrades</div>
-    <div class="card">🔮 Custom Enchants</div>
-    <div class="card">🧠 Long-Term Progression</div>
+    <div class="card"><span>⚔️</span>Custom Fantasy Mobs</div>
+    <div class="card"><span>🧱</span>Block & Mob Progression</div>
+    <div class="card"><span>🌍</span>Planets & Worlds</div>
+    <div class="card"><span>🐾</span>Pets & Gear Upgrades</div>
+    <div class="card"><span>🔮</span>Custom Enchants</div>
+    <div class="card"><span>🧠</span>Long-Term Progression</div>
   </div>
-</section>
-
-<section class="fade">
-  <h2>Support the World</h2>
-  <p style="margin-top:18px;opacity:.8">
-    Donations are optional. All contributions are reinvested into the server.
-  </p>
 </section>
 
 <footer>
@@ -224,7 +218,7 @@ footer{
 const c=document.getElementById("particles"),x=c.getContext("2d");
 let w,h;function r(){w=c.width=innerWidth;h=c.height=innerHeight}
 addEventListener("resize",r);r();
-let p=[...Array(90)].map(()=>({x:Math.random()*w,y:Math.random()*h,vx:Math.random()*.3,vy:Math.random()*.3,r:Math.random()*2+1}));
+let p=[...Array(90)].map(()=>({x:Math.random()*w,y:Math.random()*h,vx:Math.random()*.25,vy:Math.random()*.25,r:Math.random()*2+1}));
 function a(){
   x.clearRect(0,0,w,h);
   p.forEach(e=>{
@@ -244,10 +238,19 @@ addEventListener("mousemove",e=>{
 });
 
 /* SCROLL */
-const f=document.querySelectorAll(".fade");
-addEventListener("scroll",()=>f.forEach(e=>{
-  if(e.getBoundingClientRect().top<innerHeight-80)e.classList.add("show");
-}));
+document.querySelectorAll(".fade").forEach(f=>{
+  addEventListener("scroll",()=>{
+    if(f.getBoundingClientRect().top<innerHeight-80)f.classList.add("show");
+  });
+});
+
+/* SOUND */
+const audio=document.getElementById("ambience");
+let playing=false;
+function toggleSound(){
+  if(!playing){audio.play();playing=true}
+  else{audio.pause();playing=false}
+}
 
 /* LANGUAGE */
 function setLang(l){
@@ -263,6 +266,7 @@ function setLang(l){
 
 </body>
 </html>
+
 
 
 
